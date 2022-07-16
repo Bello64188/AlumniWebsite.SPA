@@ -2,6 +2,9 @@
   "dependencies": {
     "@angular-devkit/build-angular": "^14.0.6",
     "@angular/common": "^13.3.11",
+    "@angular/platform-browser": "^14.0.6",
+    "@angular/platform-browser-dynamic": "^14.0.6",
+    "@angular/router": "^14.0.6",
     "g": "^2.0.1",
     "get-intrinsic": "^1.1.2"
   }
