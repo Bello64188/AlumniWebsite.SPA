@@ -1,5 +1,5 @@
 import { AuthService } from './../../_services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Inject} from '@angular/core';
 
 @Component({
   selector: 'app-weatherforecast',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherforecastComponent implements OnInit {
 data:any[]=[];
-  constructor(private auth :AuthService) { }
+  constructor(private auth:AuthService) { }
 
   ngOnInit(): void {
     this.get()

@@ -1,0 +1,94 @@
+.image-logo
+{
+  margin-left: 3em;
+  margin-top: 1em;
+  position: relative;
+
+}
+h1 {
+   display: inline-block;
+   color: rgba(59, 95, 150, 0.3);
+   text-shadow: 2px 0px 0.5px rgb(2, 15, 20);
+}
+ul{
+  float: right;
+  display: flex;
+}
+li{
+  padding: 0em;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.993);
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.members
+{
+  background-color: rgba(7, 161, 110, 0.493);
+  color: white;
+  padding: 3px;
+  border-radius: 2px;
+  font-size: 17px;
+
+}
+.social-icon
+{
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  left: 0;
+  right: 5em;
+  top: 3em;
+
+}
+.social-icon a
+{
+  margin-left: 0.7em;
+
+}
+.fa:hover{
+opacity: 0.2;
+font-size: 20px;
+}
+.navbar {
+position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10em;
+ background-color: rgba(38, 168, 92, 0.493);
+  box-sizing: border-box;
+  border-radius: 2.5px;
+  transition: all 0.3 ease-out;
+}
+.bg-primary {
+
+ background-image: linear-gradient(rgb(49, 118, 146),rgba(113, 141, 122, 0.4));
+}
+.navbar-dark .navbar-nav .nav-link {
+  font-size: large;
+  border-right: #9b9b9b 1px solid;
+}
+.dropdown-item:hover {
+  
+  background-color: #cce0f3;
+  background-image: linear-gradient(#9db4c9, rgb(209, 207, 207));
+}
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+ 
+}
+.clearfix,ul,li{
+  padding-right: 5px;
+}
+ .navbar.fixed-top {
+  position: fixed;
+  
+  top:0;
+background-color: black;
+  z-index: 1030;
+}

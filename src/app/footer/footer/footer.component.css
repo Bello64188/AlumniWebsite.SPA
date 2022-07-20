@@ -1,0 +1,22 @@
+.text-center, a{
+  text-decoration: none;
+}
+.set {
+  
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 3em;
+  
+}
+.me-5, .news{
+  color: inherit;
+  padding-left: 1em;
+  font-weight: 600;
+  font-size: 20px;
+}
+.navbar-fixed-bottom, .navbar-fixed-top {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}

@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="image-logo">
+    <a href="#">
+      <img src="../../assets/images/modebe.png" alt="modebe image">
+    </a>
+    <h1>MMSS ALUMNI</h1>
+
+    <ul class="clearfix">
+      <li><a href=""> Contact Us</a></li>
+      <li><a href="">Member Login</a></li>
+      <li><a href="" class="members"> Members-Get Listed Today</a></li>
+
+    </ul>
+    <div class="social-icon clearfix">
+      <a href=""><i class="fa fa-envelope" aria-hidden="true"></i></a>
+     <a href=""> <i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+     <a href="" >
+      <i class="fa fa-twitter"></i>
+    </a>
+     <a href=""> <i class="fa fa-linkedin" aria-hidden="true"></i></a>
+     <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+     </div>
+  </div>
+
+</div>
+<div class="container-fluid ">
+    <nav class="navbar navbar-expand-lg   lockedonscroll navbar-dark bg-primary">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item ">
+            <a class="nav-link active" href="#" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <div class="btn-group" dropdown>
+              <a id="button-basic" dropdownToggle type="button" class="nav-link dropdown-toggle"
+              aria-expanded="false">
+                MMSS Directory <span class="caret"></span>
+            </a>
+              <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                  role="menu" aria-labelledby="button-basic">
+                <a class="dropdown-item" href="#">MMSS Members <fa-icon [icon]="fagraduate"></fa-icon></a>
+                <!-- <a class="dropdown-item" href="#">Teacher Profiles <fa-icon [icon]="faTeacher"></fa-icon></a> -->
+                <a class="dropdown-item" href="#">Member Login <fa-icon [icon]="faLogin"></fa-icon></a>
+                <a class="dropdown-item" href="#">Join Today <fa-icon [icon]="fajoin"></fa-icon></a>
+                <a class="dropdown-item" href="#">Contact Us <fa-icon [icon]="faphone"></fa-icon> </a>
+                <p class="divider dropdown-divider"></p>
+                <a class="dropdown-item" href="#">In Memory <fa-icon [icon]="famemory"></fa-icon></a>
+                
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Latest News</a>
+          </li>
+          <li class="nav-item">
+            <div class="btn-group" dropdown>
+              <a id="button-basic" dropdownToggle type="button" class="nav-link dropdown-toggle"
+              aria-expanded="false">
+                Upcoming Events <span class="caret"></span>
+            </a>
+              <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                  role="menu" aria-labelledby="button-basic">
+                <a class="dropdown-item" href="#">All Events <fa-icon [icon]="facalendar"></fa-icon> </a>
+                <a class="dropdown-item" href="#">Event Calender <fa-icon [icon]="faevent"></fa-icon></a>               
+                
+              </div>
+            </div>
+            
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Job Board</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">How It Works</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>

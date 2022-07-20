@@ -1,0 +1,20 @@
+.container-fluid{
+  position: relative;
+ padding-left: 0;
+ padding-right: 0;
+}
+.container-fluid img{
+  width: 100%;
+  height: 25em;
+}
+.description{
+  position: absolute;
+  bottom: 2em;
+  left: 5em;
+}
+.description, h1{
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 58px;
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+}
