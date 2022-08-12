@@ -9,12 +9,12 @@
 }
 .description{
   position: absolute;
-  bottom: 2em;
+  bottom: 3em;
   left: 5em;
 }
 .description, h1{
   color: rgba(255, 255, 255, 0.9);
-  font-size: 58px;
+  font-size: 39px;
   font-weight: bolder;
   font-family: 'Times New Roman', Times, serif;
 }

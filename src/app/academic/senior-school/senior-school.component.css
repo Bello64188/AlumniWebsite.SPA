@@ -1,0 +1,49 @@
+.jumbotron {
+  box-sizing: border-box;
+  margin-top: 0.2em;
+  border-radius: 9px;
+}
+.display-4{
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgb(31, 30, 30);
+  font-weight: 500;
+}
+.main{
+  margin-top:1.5em ;
+  margin-bottom: 2em;
+  background-image: linear-gradient(to bottom right, rgb(248, 236, 236), rgb(63, 80, 80));
+}
+
+.junior-body h3{
+  text-shadow: 1px 1px 2px rgba(236, 234, 234, 0.507);
+  font-weight: normal;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding-top: 1.2em;
+  padding-left: 0.5em;
+}
+.junior-body img{
+ padding-left: 2em;
+ padding-bottom: 1em;
+ width: 60%;
+ height: 40%;
+}
+.setP, .setP-2{
+  width: 60%;
+  text-align: justify;
+  line-height: 1.8;
+  text-indent: 1em;
+  padding-left: 2em;
+}
+.junior-body ul{  padding-left: 4em;}
+ul li{
+  text-align: justify;
+  line-height: 1.8;
+  list-style: circle;
+  color: #343a40;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+p.setP-2{
+  padding-bottom: 2em !important;
+}

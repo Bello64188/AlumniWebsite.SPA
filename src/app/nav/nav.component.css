@@ -9,6 +9,7 @@ h1 {
    display: inline-block;
    color: rgba(59, 95, 150, 0.3);
    text-shadow: 2px 0px 0.5px rgb(2, 15, 20);
+   font-size: 1.3rem;
 }
 ul{
   float: right;
@@ -73,21 +74,21 @@ position: relative;
   border-right: #9b9b9b 1px solid;
 }
 .dropdown-item:hover {
-  
+
   background-color: #cce0f3;
   background-image: linear-gradient(#9db4c9, rgb(209, 207, 207));
 }
 .container-fluid {
   padding-right: 0;
   padding-left: 0;
- 
+
 }
 .clearfix,ul,li{
   padding-right: 5px;
 }
  .navbar.fixed-top {
   position: fixed;
-  
+
   top:0;
 background-color: black;
   z-index: 1030;

@@ -15,11 +15,11 @@
 .text-center,p{
   margin-bottom: 0rem;
   color: rgb(255,255,255);
-  font-size: 1.4em;
+  font-size: 1em;
 }
 .logDescription{
   position: absolute;
-  left: 15em;
+  left: 17.4em;
   bottom: 3em;
 }
 .form-group{
@@ -33,11 +33,35 @@ display: block;
 }
 .container {
   max-width: 60%;
-  
+
     padding-bottom: 2em;
     padding-top: 2em;
 }
 .text-center1{
   justify-content: center;
 }
+.notmember{
+  color: rgb(185 49 175 / 61%);
+}
+.form-group,a {
+text-decoration: none;
+}
+.form-group,h4{
+  font-weight: normal;
+ }
+ .text-danger {
+  color: #fa7380!important;
+  font-size: small;
+}
+.form-control{
+  font-size: 1.0rem;
+}
+.passwordbtn{
+  margin-bottom: 14px;
+  margin-top: -5px;
+  padding: 2px 6px;
 
+}
+input:invalid{
+  border-color: rgb(190, 65, 65);
+}
