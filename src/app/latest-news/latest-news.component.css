@@ -1,0 +1,11 @@
+.jumbotron {
+  box-sizing: border-box;
+  margin-top: 0.2em;
+  border-radius: 9px;
+}
+.display-4{
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgb(31, 30, 30);
+  font-weight: 500;
+}

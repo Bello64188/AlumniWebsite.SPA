@@ -32,6 +32,10 @@ import { EducationalPolicyComponent } from './about/educational-policy/education
 import { JuniorSchoolComponent } from './academic/junior-school/junior-school.component';
 import { SeniorSchoolComponent } from './academic/senior-school/senior-school.component';
 import { CalendarComponent } from './academic/calendar/calendar.component';
+import { JuniorSectionComponent } from './admission/admission-intro/junior-section/junior-section.component';
+import { SeniorSectionComponent } from './admission/admission-intro/senior-section/senior-section.component';
+import { LatestNewsComponent } from './latest-news/latest-news.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
   @NgModule({
@@ -51,7 +55,11 @@ import { CalendarComponent } from './academic/calendar/calendar.component';
       EducationalPolicyComponent,
       JuniorSchoolComponent,
       SeniorSchoolComponent,
-      CalendarComponent
+      CalendarComponent,
+      JuniorSectionComponent,
+      SeniorSectionComponent,
+      LatestNewsComponent,
+      ContactUsComponent
     ],
     imports: [
       BrowserModule,

@@ -1,3 +1,7 @@
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { LatestNewsComponent } from './latest-news/latest-news.component';
+import { SeniorSectionComponent } from './admission/admission-intro/senior-section/senior-section.component';
+import { JuniorSectionComponent } from './admission/admission-intro/junior-section/junior-section.component';
 import { CalendarComponent } from './academic/calendar/calendar.component';
 import { SeniorSchoolComponent } from './academic/senior-school/senior-school.component';
 import { JuniorSchoolComponent } from './academic/junior-school/junior-school.component';
@@ -25,7 +29,11 @@ const routes: Routes = [
   {path: 'educational-policy', component:EducationalPolicyComponent},
   {path: 'junior-school', component:JuniorSchoolComponent},
   {path: 'senior-school', component:SeniorSchoolComponent},
-  {path: 'calendar', component:CalendarComponent}
+  {path: 'calendar', component:CalendarComponent},
+  {path: 'junior-section', component:JuniorSectionComponent},
+  {path:'senior-section', component:SeniorSectionComponent},
+  {path: 'latest-news', component:LatestNewsComponent},
+  {path: 'contact-us',component:ContactUsComponent}
 ];
 
 @NgModule({
