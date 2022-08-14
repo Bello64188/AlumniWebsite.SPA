@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { LatestNewsComponent } from './latest-news/latest-news.component';
 import { SeniorSectionComponent } from './admission/admission-intro/senior-section/senior-section.component';
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path: 'junior-section', component:JuniorSectionComponent},
   {path:'senior-section', component:SeniorSectionComponent},
   {path: 'latest-news', component:LatestNewsComponent},
-  {path: 'contact-us',component:ContactUsComponent}
+  {path: 'contact-us',component:ContactUsComponent},
+  {path: 'not-found',component:NotFoundComponent}
 ];
 
 @NgModule({

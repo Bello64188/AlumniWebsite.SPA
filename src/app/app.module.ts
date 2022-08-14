@@ -36,6 +36,8 @@ import { JuniorSectionComponent } from './admission/admission-intro/junior-secti
 import { SeniorSectionComponent } from './admission/admission-intro/senior-section/senior-section.component';
 import { LatestNewsComponent } from './latest-news/latest-news.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
   @NgModule({
@@ -59,7 +61,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
       JuniorSectionComponent,
       SeniorSectionComponent,
       LatestNewsComponent,
-      ContactUsComponent
+      ContactUsComponent,
+      NotFoundComponent
     ],
     imports: [
       BrowserModule,
@@ -80,7 +83,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
         MatDatepickerModule,
         MatNativeDateModule,
         MatIconModule],
-
+        CarouselModule.forRoot()
 
     ],
     exports:[

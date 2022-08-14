@@ -12,9 +12,159 @@
   bottom: 3em;
   left: 5em;
 }
-.description, h1{
+.carousel-caption h1{
   color: rgba(255, 255, 255, 0.9);
   font-size: 39px;
   font-weight: bolder;
   font-family: 'Times New Roman', Times, serif;
+}
+.firstSection{
+  background-color:  rgb(214 139 139 / 43%);
+  padding: 1em;
+  transition: all 1s ease-out;
+}
+.firstSection, h3, h4{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: normal !important;
+  line-height: 1.5;
+
+}
+.firstSection:hover{
+  color:rgba(153, 158, 108, 0.664);
+  text-shadow: 1px 1px 2px rgba(236, 234, 234, 0.507);
+  cursor: pointer;
+}
+.col9{
+  padding-top: 2em;
+  padding-left: 1em;
+  background-color: rgb(209 191 191 / 90%);
+}
+.academic{
+  display: flex;
+}
+.main-academic.col9{
+  display: flex;
+  justify-content: space-around;
+}
+.academic, fa-icon{
+  padding: 18px;
+}
+.col-md-4{
+  transition: all 1s ease-out;
+}
+.col-md-4:hover{
+  color: rgba(153, 151, 149, 0.959);
+}
+.secondSection{
+  background-color: rgb(209 191 191 / 90%);
+  padding: 1em;
+}
+.secondSection ul li{
+  list-style: circle;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.8;
+}
+li:hover{
+opacity: 0.3;
+}
+.rounded {
+  width: 110%;
+  height: 88%;
+  margin-top: 2em
+}
+.main-row{
+  height: auto;
+  background-color: rgb(231, 229, 227);
+}
+.message{
+  padding-left: 3em;
+  padding-top: 2em;
+  box-sizing: border-box;
+}
+.message p{
+  line-height: 1.7;
+  text-align: justify;
+  font-family: cursive;
+}
+.prepared{
+  text-align: center;
+  margin-top: 1em;
+}
+.prepared h1{
+color: brown;
+font-family: Arial, Helvetica, sans-serif;
+
+}
+.prepared p{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #808184;
+  font-size: 25px;
+  font-weight: 300;
+}
+.details{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.details-col{
+  text-align: center;
+}
+.details-col fa-icon{
+  font-size: 3rem;
+}
+.details-col h5{
+  font-family: 'Times New Roman', Times, serif;
+  color: brown;
+}
+.covid{
+  margin: 1.5em;
+  background-color: #D4E6CF;
+}
+.round{
+  width: 100%;
+  height: 81%;
+  margin-top: 2em;
+}
+.covidText h2{
+  color: brown;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.covidText{
+  padding-top: 1em;
+}
+.covidText p{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #808184;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: justify;
+}
+.newButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+}
+.head{
+  background-color: #1c1d1c;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3px;
+}
+.btn{
+ background-color: darkgoldenrod;
+color: #fff;
+margin-top: 1em;
+margin-bottom: 1em;
+padding-top: 0.5em;
+padding-bottom: 0.5em;
+}
+.btn:hover{
+  opacity: .5;
+}
+.text-white{
+  padding-left: 1em;
 }
