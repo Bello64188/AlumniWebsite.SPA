@@ -1,3 +1,7 @@
+import { MemberDetailsComponent } from './member/member-details/member-details.component';
+import { MemberEditComponent } from './member/member-edit/member-edit.component';
+import { MemberMessagesComponent } from './member/member-messages/member-messages.component';
+import { MemberListComponent } from './member/member-list/member-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { LatestNewsComponent } from './latest-news/latest-news.component';
@@ -24,6 +28,10 @@ const routes: Routes = [
   {path:'register', component:MemberRegisterComponent},
   {path:'forget-password', component:ForgetPasswordComponent},
   {path:'reset-password', component:ResetPasswordComponent},
+  {path: 'members', component:MemberListComponent},//?resolver
+  {path:'messages',component:MemberMessagesComponent},//?resolver
+  {path:'member/edit',component:MemberEditComponent},//?canDeactivate and Resolver
+  {path:'members/:id',component: MemberDetailsComponent},//?resolver
   {path:'about', component:AboutComponent},
   {path: 'mission-statement', component:MissionStatementComponent},
   {path: 'principal-message', component:PrincipalMessageComponent},

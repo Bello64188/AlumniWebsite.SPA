@@ -1,7 +1,9 @@
+import { JwtokenInterceptorInterceptor } from './_interceptors/jwtoken-interceptor.interceptor';
+import { ErrorInterceptorInterceptor } from './_interceptors/error-interceptor.interceptor';
   import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   import { NgModule } from '@angular/core';
   import { BrowserModule } from '@angular/platform-browser';
-  import {HttpClientModule } from "@angular/common/http";
+  import {HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
   import { AppRoutingModule } from './app-routing.module';
   import { AppComponent } from './app.component';
   import { WeatherforecastComponent } from './weatherforecast/weatherforecast/weatherforecast.component';
@@ -38,6 +40,13 @@ import { LatestNewsComponent } from './latest-news/latest-news.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ToastrModule } from 'ngx-toastr';
+import { MemberListComponent } from './member/member-list/member-list.component';
+import { MemberCardComponent } from './member/member-card/member-card.component';
+import { MemberDetailsComponent } from './member/member-details/member-details.component';
+import { MemberEditComponent } from './member/member-edit/member-edit.component';
+import { MemberMessagesComponent } from './member/member-messages/member-messages.component';
+import { PhotoEditorComponent } from './member/photo-editor/photo-editor.component';
 
 
   @NgModule({
@@ -62,7 +71,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
       SeniorSectionComponent,
       LatestNewsComponent,
       ContactUsComponent,
-      NotFoundComponent
+      NotFoundComponent,
+      MemberListComponent,
+      MemberCardComponent,
+      MemberDetailsComponent,
+      MemberEditComponent,
+      MemberMessagesComponent,
+      PhotoEditorComponent
     ],
     imports: [
       BrowserModule,
@@ -83,7 +98,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
         MatDatepickerModule,
         MatNativeDateModule,
         MatIconModule],
-        CarouselModule.forRoot()
+        CarouselModule.forRoot(),
+        ToastrModule.forRoot({
+          extendedTimeOut:3000,
+          preventDuplicates:true
+        })
+
+
 
     ],
     exports:[
@@ -99,7 +120,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
         MatIconModule
       ]
     ],
-    providers: [],
+    providers: [ //? setting interceptors to providers in app Modules
+      {provide:HTTP_INTERCEPTORS,
+        useClass:ErrorInterceptorInterceptor,
+        multi:true},
+      {provide:HTTP_INTERCEPTORS,
+        useClass:JwtokenInterceptorInterceptor,
+        multi:true}
+    ],
     bootstrap: [AppComponent]
   })
   export class AppModule { }

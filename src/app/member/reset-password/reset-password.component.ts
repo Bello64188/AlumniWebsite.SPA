@@ -1,5 +1,10 @@
 import { MemberService } from 'src/app/_services/member.service';
-import { FormBuilder, FormGroup, ValidatorFn, AbstractControl, ValidationErrors, Validators } from '@angular/forms';
+import { FormBuilder,
+         FormGroup,
+         ValidatorFn,
+         AbstractControl,
+         ValidationErrors,
+         Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

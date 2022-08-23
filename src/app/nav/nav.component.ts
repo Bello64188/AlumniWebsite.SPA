@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
-import { faArrowRightToBracket, faUser, faUserGraduate, faUserPlus,faPhoneSquare,faArrowRight,faCalendar,faCalendarTimes } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightToBracket,
+          faUser,
+          faUserGraduate,
+           faUserPlus,
+           faPhoneSquare,
+           faArrowRight,
+           faCalendar,
+           faCalendarTimes
+           } from "@fortawesome/free-solid-svg-icons";
 import * as $ from 'jquery';
 @Component({
   selector: 'app-nav',

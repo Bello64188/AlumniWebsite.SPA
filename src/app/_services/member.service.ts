@@ -12,7 +12,7 @@ export class MemberService {
       if(!control.value){
          return null as any;
       }
-       const regex = new RegExp('^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=.*?[#?!@$%^&*-]).{4,10}$')
+       const regex = new RegExp('^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=.*?[#?!@$%^&*-]).{4,15}$')
      const valid = regex.test(control.value);
      return valid ? null as any : {invalidPassword:true};
     };

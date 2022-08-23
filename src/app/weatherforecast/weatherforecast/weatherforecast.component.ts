@@ -11,15 +11,15 @@ data:any[]=[];
   constructor(private auth:AuthService) { }
 
   ngOnInit(): void {
-    this.get()
+    //this.get()
   }
-get(){
-  return this.auth.getWeather().subscribe(data=>{
-   console.log(data);
-   this.data =data;
-  },error=>{
-    console.log(error);
+// get(){
+//   return this.auth.getWeather().subscribe(data=>{
+//    console.log(data);
+//    this.data =data;
+//   },error=>{
+//     console.log(error);
 
-  })
-}
+//   })
+// }
 }

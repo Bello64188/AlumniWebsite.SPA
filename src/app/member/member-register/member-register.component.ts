@@ -1,6 +1,17 @@
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Member } from './../../_model/Member';
+import { AuthService } from './../../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from 'src/app/_services/member.service';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl,
+   FormBuilder,
+    FormControl,
+    FormGroup,
+    NgForm,
+    ValidationErrors,
+    ValidatorFn,
+    Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-member-register',
@@ -8,10 +19,13 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validatio
   styleUrls: ['./member-register.component.css']
 })
 export class MemberRegisterComponent implements OnInit {
+  model:Member
 public showPassword:boolean=false;
 registerForm : FormGroup;
   submitted:boolean=false;
-  constructor(private member:MemberService, private fb:FormBuilder) { }
+  constructor(private member:MemberService,
+     private fb:FormBuilder, private auth:AuthService,
+     private toastr:ToastrService,private route:Router) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -50,5 +64,26 @@ passwordMatchValidator: ValidatorFn= (p:AbstractControl): ValidationErrors | nul
 }
 get registerFormControl(){
   return this.registerForm.controls;
+}
+//* Register
+register(){
+  this.submitted=true;
+  if (this.registerForm.valid) {
+    this.member= Object.assign({},this.registerForm.value);
+    this.auth.Register(this.model).subscribe(()=>{
+    this.toastr.success("Register Successfully...");
+
+    },
+    (error:any)=>{
+      this.toastr.error("Registration Failed.");
+    },
+    ()=>{
+      this.auth.login(this.model).subscribe(()=>{
+      this.route.navigate(['/members']);
+      this.toastr.info("Welcome to Modebe Alumni Page")
+      });
+    }
+    );
+  }
 }
 }

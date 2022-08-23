@@ -32,7 +32,8 @@
                "src/assets/vendor/bootstrap/font-awesome/css/font-awesome.min.css",
                "src/assets/vendor/alertifyjs/build/css/alertify.min.css",
                "src/assets/vendor/alertifyjs/build/css/themes/bootstrap.min.css",
-               "src/assets/vendor/bootswatch/dist/litera/bootstrap.min.css"
+               "src/assets/vendor/bootswatch/dist/litera/bootstrap.min.css",
+               "src/assets/vendor/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "src/assets/vendor/bootstrap/dist/js/bootstrap.min.js",

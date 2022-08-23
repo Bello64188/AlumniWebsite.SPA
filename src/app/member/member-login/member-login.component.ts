@@ -1,3 +1,7 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from './../../_services/auth.service';
 import { MemberService } from 'src/app/_services/member.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -8,11 +12,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./member-login.component.css']
 })
 export class MemberLoginComponent implements OnInit {
+  userToken:any;
+  decodeToken:any;
+  model:any={};
   logForm:FormGroup;
   submitted:boolean=false;
   showpassword:boolean=false;
+  public jwtHelper:JwtHelperService= new JwtHelperService();
 registerMode =false;
-  constructor(private fb:FormBuilder , private member:MemberService) { }
+  constructor(private fb:FormBuilder ,
+     private member:MemberService,
+     private auth:AuthService,
+     private toastr:ToastrService,
+     private route:Router) { }
   ngOnInit(): void {
    this.createLog();
   }
@@ -31,4 +43,34 @@ registerToggle(){
 showHidePassword(){
   this.showpassword= !this.showpassword;
 }
+/**
+ * subscribed to model from authService login
+ * if is not login navigate to register Page
+ * @returns
+ */
+Login(){
+  return this.auth.login(this.model).subscribe((data:any)=>{
+
+    this.toastr.success("Login Successfully");
+  },
+  (err:any)=>{
+    this.toastr.error('Check your Email and Password.');
+  },
+  ()=>{
+    //! use member list page here
+    this.route.navigate(['/members']);
+    this.toastr.info("Welcome Modebe Alumni Web page !");
+  }
+  )
+}
+logout(){
+  this.auth.decodeToken=null;
+  this.auth.currentUser=null;
+  localStorage.removeItem('token');
+  localStorage.removeItem('memberFromDto');
+  this.toastr.success("Logged out Successfully...");
+  this.route.navigate(['/home']);
+}
+
+
 }

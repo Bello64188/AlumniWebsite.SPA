@@ -7,11 +7,11 @@
 </div>
 <div class="container" *ngIf="!registerMode">
 
-  <form class=" form-group panel panel-default">
+  <form #form="ngForm" class=" form-group panel panel-default" (submit)="Login()">
     <h4 class=" mb-4">Member Login</h4>
     <!-- Email input -->
     <div class="form-outline  mb-4" [formGroup]="logForm">
-      <input type="email" id="form2Example1" class="form-control"  placeholder="Email Address" formControlName="email"  (error)="true" />
+      <input type="email" id="form2Example1" class="form-control" name="email" [(ngModel)]="model.email"  placeholder="Email Address" formControlName="email"  (error)="true" />
       <span class="text-danger"
       *ngIf="(logFormControl['email'].touched || submitted) && logFormControl['email'].errors?.['required']"> Email is Required.</span>
       <span class="text-danger"
@@ -20,7 +20,7 @@
 
     <!-- Password input -->
     <div class="form-outline mb-4" [formGroup]="logForm">
-      <input type="password" [type]="showpassword? 'text':'password'" id="form2Example2" class="form-control" placeholder="Password" formControlName="password" (error)="true"/>
+      <input type="password" [type]="showpassword? 'text':'password'" name="password" [(ngModel)]="model.password" id="form2Example2" class="form-control" placeholder="Password" formControlName="password" (error)="true"/>
       <span class="text-danger help-block"
     *ngIf="(logFormControl['password'].touched || submitted) && logFormControl['password'].errors?.['required']"> Password is Required.</span>
     <span class="text-danger help-block"
@@ -28,7 +28,7 @@
     <span class="text-danger help-block"
     *ngIf="(logFormControl['password'].touched) && logFormControl['password'].errors?.['invalidPassword']"> Password should have 8 characters, 1 uppercase,1 lowercase,1 number and 1 special character.</span>
     </div>
-    <button class="btn btn-primary passwordbtn" (click)="showHidePassword()"> {{showpassword? 'Hide':'Show'}} Password</button>
+    <button type="button" class="btn btn-primary passwordbtn" (click)="showHidePassword()"> {{showpassword? 'Hide':'Show'}} Password</button>
     <!-- 2 column grid layout for inline styling -->
     <div class="row mb-4">
       <div class="col d-flex justify-content-center">

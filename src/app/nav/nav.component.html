@@ -131,9 +131,9 @@
               </a>
                 <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
                     role="menu" aria-labelledby="button-basic">
-                  <a class="dropdown-item" href="#">MMSS Members <fa-icon [icon]="fagraduate"></fa-icon></a>
-                  <a class="dropdown-item" href="#" [routerLink]="['/login']">Member Login <fa-icon [icon]="faLogin"></fa-icon></a>
-                  <a class="dropdown-item" href="#"[routerLink]="['/register']" >Join Today <fa-icon [icon]="fajoin"></fa-icon></a>
+                  <a class="dropdown-item" [routerLink]="['/members']" >MMSS Members <fa-icon [icon]="fagraduate"></fa-icon></a>
+                  <a class="dropdown-item"  [routerLink]="['/login']">Member Login <fa-icon [icon]="faLogin"></fa-icon></a>
+                  <a class="dropdown-item" [routerLink]="['/register']" >Join Today <fa-icon [icon]="fajoin"></fa-icon></a>
                   <a class="dropdown-item" [routerLink]="['/contact-us']"> Contact Us <fa-icon [icon]="faphone"></fa-icon> </a>
                 </div>
               </div>
