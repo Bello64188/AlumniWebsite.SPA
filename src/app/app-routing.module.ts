@@ -1,3 +1,4 @@
+import { MemberCardComponent } from './member/member-card/member-card.component';
 import { MemberDetailsComponent } from './member/member-details/member-details.component';
 import { MemberEditComponent } from './member/member-edit/member-edit.component';
 import { MemberMessagesComponent } from './member/member-messages/member-messages.component';
@@ -28,7 +29,9 @@ const routes: Routes = [
   {path:'register', component:MemberRegisterComponent},
   {path:'forget-password', component:ForgetPasswordComponent},
   {path:'reset-password', component:ResetPasswordComponent},
+  {path:'member-card',component:MemberCardComponent}, //? remove later.
   {path: 'members', component:MemberListComponent},//?resolver
+  {path: 'member-details', component:MemberDetailsComponent},//?resolver
   {path:'messages',component:MemberMessagesComponent},//?resolver
   {path:'member/edit',component:MemberEditComponent},//?canDeactivate and Resolver
   {path:'members/:id',component: MemberDetailsComponent},//?resolver

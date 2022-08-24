@@ -1,0 +1,76 @@
+.jumbotron {
+  box-sizing: border-box;
+  margin-top: 0.2em;
+  border-radius: 9px;
+}
+.display-4{
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgb(31, 30, 30);
+  font-weight: 500;
+}
+.form-inline{
+  justify-content: center;
+}
+.form-control{
+width: 5em;
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: large;
+}
+.form-group label{
+  font-size: 14px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-right: 2.5px;
+  margin-left: 2.5px;
+}
+.btn{
+  width: fit-content;
+  margin-right: 2px;
+}
+button[type="submit"]{
+margin-left: 2px;
+}
+/* working on dropdown button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: #ddd}
+#mybtn i{
+  margin-right: 2px;
+}
+#mybtn img{
+  width: 34px;
+  border-radius: 36%;
+}
+#mybtn{
+  border-radius: 1.078em;
+  padding-top: 6px;
+  padding-bottom: 7px;
+  font-family: 'Times New Roman', Times, serif;
+}

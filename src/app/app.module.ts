@@ -47,6 +47,8 @@ import { MemberDetailsComponent } from './member/member-details/member-details.c
 import { MemberEditComponent } from './member/member-edit/member-edit.component';
 import { MemberMessagesComponent } from './member/member-messages/member-messages.component';
 import { PhotoEditorComponent } from './member/photo-editor/photo-editor.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {matTooltipAnimations, MatTooltipModule} from '@angular/material/tooltip';
 
 
   @NgModule({
@@ -102,9 +104,9 @@ import { PhotoEditorComponent } from './member/photo-editor/photo-editor.compone
         ToastrModule.forRoot({
           extendedTimeOut:3000,
           preventDuplicates:true
-        })
-
-
+        }),
+        MatTabsModule,
+        MatTooltipModule
 
     ],
     exports:[

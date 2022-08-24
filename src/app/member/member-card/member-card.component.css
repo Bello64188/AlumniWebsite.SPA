@@ -1,0 +1,41 @@
+.list-inline{
+  text-align: center;
+}
+.btn{
+  padding: 2px 7px;
+  border-radius: 0.7em;
+  background-color: #157873;
+  border-color: #a3960299;
+
+}
+.btn-primary:hover {
+
+  transform: scale(1,1)
+}
+.card img{
+  transform: scale(1.0,1.0);
+  transition: duration 500ms;
+  transition-timing-function: ease-out;
+
+}
+.card:hover img{
+  transform: scale(1.1,1.1);
+  transition-duration: 500ms;
+  transition-timing-function:ease-out ;
+}
+.img-icons-wrapper{
+  overflow: hidden;
+  position: relative;
+  transition:all 2s ease-out;
+}
+.member-icons{
+position: absolute;
+bottom: -30%;
+left: 0;
+right: 0;
+opacity: 0;
+}
+.img-icons-wrapper:hover .member-icons{
+  bottom: 4em;
+  opacity: 1;
+}

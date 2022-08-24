@@ -1,1 +1,61 @@
-<p>member-details works!</p>
+<div class="container">
+  <div class="row mt-4">
+    <p class="h4">User's Profile</p>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" alt="knownAs" style="width:100%">
+       <div class="text-justify">
+          <!-- location -->
+          <div>
+            <strong class="card-text">Location :</strong>
+            <p class="card-text title">city,country</p>
+          </div>
+          <!-- Age -->
+          <div>
+            <strong class="card-text">Age :</strong>
+            <p class="card-text title">age</p>
+          </div>
+          <!-- LastActive -->
+          <div>
+            <strong class="card-text">Last Active :</strong>
+            <p class="card-text title">last active</p>
+          </div>
+          <!-- Created -->
+          <div>
+            <strong class="card-text">Member Since :</strong>
+            <p class="card-text title">created</p>
+          </div>
+       </div>
+          <div class="icons">
+            <button mat-raised-button
+        matTooltip="Message user">
+        <i class="fa fa-envelope"></i>
+            </button>
+            <button mat-raised-button
+            matTooltip="Like user">
+            <i class="fa fa-heart"></i>
+                </button>
+        </div>
+        <div class="button-container">
+
+          <div class="button-flipper">
+             <button class="front-button">Contact</button>
+             <button class="back-button">+2347043281023</button>
+          </div>
+
+       </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <p class="h4">About User</p>
+      <mat-tab-group>
+        <mat-tab label="Description"> Description here </mat-tab>
+        <mat-tab label="Interests"> Intesrest here</mat-tab>
+        <mat-tab label="Photos"> Photos here</mat-tab>
+        <mat-tab label="Messages"> Messages here</mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
