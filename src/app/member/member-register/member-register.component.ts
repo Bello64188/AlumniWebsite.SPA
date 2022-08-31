@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Member } from './../../_model/Member';
 import { AuthService } from './../../_services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MemberService } from 'src/app/_services/member.service';
 import { AbstractControl,
    FormBuilder,
@@ -20,12 +20,16 @@ import { AbstractControl,
 })
 export class MemberRegisterComponent implements OnInit {
   model:Member
+  yearOfGraduations:number[]= [1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,
+  2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022];
 public showPassword:boolean=false;
 registerForm : FormGroup;
   submitted:boolean=false;
+ @Output() cancelRegistration= new EventEmitter()
   constructor(private member:MemberService,
      private fb:FormBuilder, private auth:AuthService,
-     private toastr:ToastrService,private route:Router) { }
+     private toastr:ToastrService,private route:Router,
+    ) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -37,8 +41,7 @@ createForm(){
   this.registerForm= this.fb.group({
     gender: ['male'],
     email: [ '',[Validators.required,Validators.email]],
-    firstName: ['',Validators.required],
-    lastName: ['',Validators.required],
+    userName: ['',Validators.required],
     knownAs:['',Validators.required],
     dateOfBirth:[null,Validators.required],
     city:['',Validators.required],
@@ -46,8 +49,7 @@ createForm(){
     phoneNumber: ['',Validators.required],
     password: ['',[Validators.required,Validators.minLength(4), this.member.patternValidation()]],
     confirmPassword: ['',Validators.required],
-    graduationYear:[null,Validators.required]
-
+    graduationYear:['',Validators.required]
    },{validators: this.passwordMatchValidator});
 }
 get password(){return this.registerForm.get('password');}
@@ -69,7 +71,7 @@ get registerFormControl(){
 register(){
   this.submitted=true;
   if (this.registerForm.valid) {
-    this.member= Object.assign({},this.registerForm.value);
+    this.model= Object.assign({},this.registerForm.value);
     this.auth.Register(this.model).subscribe(()=>{
     this.toastr.success("Register Successfully...");
 
@@ -85,5 +87,12 @@ register(){
     }
     );
   }
+}
+//* cancel registration
+cancel(){
+  this.submitted=false;
+  this.cancelRegistration.emit(false);
+  this.toastr.show("Registration cancelled..");
+  this.route.navigate(['/login']);
 }
 }

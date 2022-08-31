@@ -1,1 +1,74 @@
-<p>member-edit works!</p>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <p class="h4">Your Profile</p>
+    </div>
+    <div class="col-md-8">
+      <div class="alert alert-info" [hidden]="!editForm.dirty">
+        <p><strong>information:</strong> You have made a changes. Any unsave changes will be lost!!!</p>
+     </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-4 cardDiv">
+      <div class="card">
+        <img src="{{photoUrl}}" alt="{{member.knownAs}}" style="width:100%">
+       <div class="text-justify">
+          <!-- location -->
+          <div>
+            <strong class="card-text">Location :</strong>
+            <p class="card-text title">{{member.city}},{{member.country}}</p>
+          </div>
+          <!-- Age -->
+          <div>
+            <strong class="card-text">Age :</strong>
+            <p class="card-text title">{{member.age}}</p>
+          </div>
+          <!-- LastActive -->
+          <div>
+            <strong class="card-text">Last Active :</strong>
+            <p class="card-text title">{{member.lastActive|timeAgo}}</p>
+          </div>
+          <!-- Created -->
+          <div>
+            <strong class="card-text">Member Since :</strong>
+            <p class="card-text title">{{member.created|date:"mediumDate"}}</p>
+          </div>
+       </div>
+        <div class="btn-group">
+            <button class="btn btn-block btn-success" form="editForm" [disabled]="!editForm.dirty">Save Changes</button>
+          </div>
+    </div>
+  </div>
+  <div class="col-md-7 editDiv">
+    <mat-tab-group>
+      <mat-tab label="Edit Profile">
+        <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+          <div class="form-group">
+            <label for="introduction">Description</label>
+            <textarea class="form-control" name="introduction" id="introduction" rows="3" [(ngModel)]="member.introduction"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="lookingFor">Looking For</label>
+            <textarea class="form-control" name="lookingFor" id="lookingFor" rows="3" [(ngModel)]="member.lookingFor"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="Interests">Interests</label>
+            <textarea class="form-control" name="Interests" id="Interests" rows="3" [(ngModel)]="member.interests"></textarea>
+          </div>
+          <div class="form-inline">
+            <div class="form-group">
+            <input type="text" class="form-control mr-3" name="city" id="city" placeholder="City" [(ngModel)]="member.city">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="country" id="country" placeholder="Country" [(ngModel)]="member.country">
+          </div>
+          </div>
+        </form>
+     </mat-tab>
+      <mat-tab label="Edit Photos">Edit Photo here</mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+</div>
+

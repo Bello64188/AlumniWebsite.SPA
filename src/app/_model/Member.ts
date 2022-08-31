@@ -12,12 +12,11 @@ export interface Member {
   created:Date;
   photoUrl:string;
   lastActive:Date;
-  graduationYear:Date;
+  graduationYear:number;
   city:string;
   country:string;
   introduction?:string;
   lookingFor?:string;
   Photo?:Photo[];
-  token:string;
-  roles:string[];
+
 }

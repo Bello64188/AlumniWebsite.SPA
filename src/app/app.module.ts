@@ -1,30 +1,30 @@
 import { JwtokenInterceptorInterceptor } from './_interceptors/jwtoken-interceptor.interceptor';
 import { ErrorInterceptorInterceptor } from './_interceptors/error-interceptor.interceptor';
-  import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-  import { NgModule } from '@angular/core';
-  import { BrowserModule } from '@angular/platform-browser';
-  import {HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-  import { AppRoutingModule } from './app-routing.module';
-  import { AppComponent } from './app.component';
-  import { WeatherforecastComponent } from './weatherforecast/weatherforecast/weatherforecast.component';
-  import { NavComponent } from './nav/nav.component';
-  import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-  import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-  import { FooterComponent } from './footer/footer/footer.component';
-  import { HomeComponent } from './home/home.component';
-  import { MemberLoginComponent } from './member/member-login/member-login.component';
-  import { MemberRegisterComponent } from './member/member-register/member-register.component';
-  import {MatButtonModule} from '@angular/material/button';
-  import { MatCheckboxModule} from '@angular/material/checkbox';
-  import { MatFormFieldModule} from '@angular/material/form-field';
-  import { MatInputModule} from '@angular/material/input';
-  import {  MatRadioModule} from '@angular/material/radio';
-  import {  MatSelectModule} from '@angular/material/select';
-  import {  MatCardModule} from '@angular/material/card';
-  import {  MatDatepickerModule} from '@angular/material/datepicker';
-  import {  MatNativeDateModule} from '@angular/material/core';
-  import {  MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule,Pipe,PipeTransform } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { WeatherforecastComponent } from './weatherforecast/weatherforecast/weatherforecast.component';
+import { NavComponent } from './nav/nav.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './footer/footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { MemberLoginComponent } from './member/member-login/member-login.component';
+import { MemberRegisterComponent } from './member/member-register/member-register.component';
+import {MatButtonModule} from '@angular/material/button';
+import { MatCheckboxModule} from '@angular/material/checkbox';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
+import {  MatRadioModule} from '@angular/material/radio';
+import {  MatSelectModule} from '@angular/material/select';
+import {  MatCardModule} from '@angular/material/card';
+import {  MatDatepickerModule} from '@angular/material/datepicker';
+import {  MatNativeDateModule} from '@angular/material/core';
+import {  MatIconModule } from '@angular/material/icon';
 import { ForgetPasswordComponent } from './member/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './member/reset-password/reset-password.component';
 import { AboutComponent } from './about/about.component';
@@ -48,9 +48,20 @@ import { MemberEditComponent } from './member/member-edit/member-edit.component'
 import { MemberMessagesComponent } from './member/member-messages/member-messages.component';
 import { PhotoEditorComponent } from './member/photo-editor/photo-editor.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import {matTooltipAnimations, MatTooltipModule} from '@angular/material/tooltip';
-
-
+import { MatTooltipModule} from '@angular/material/tooltip';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import {TimeAgoPipe} from 'time-ago-pipe'
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+@Pipe({
+  name:'timeAgo',
+  pure:false
+})
+export class TimeAgoExtendsPipe extends TimeAgoPipe implements PipeTransform{
+  override transform(value: string): string {
+    return super.transform(value);
+  }
+}
   @NgModule({
     declarations: [
       AppComponent,
@@ -79,7 +90,9 @@ import {matTooltipAnimations, MatTooltipModule} from '@angular/material/tooltip'
       MemberDetailsComponent,
       MemberEditComponent,
       MemberMessagesComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      TimeAgoExtendsPipe
+
     ],
     imports: [
       BrowserModule,
@@ -106,8 +119,10 @@ import {matTooltipAnimations, MatTooltipModule} from '@angular/material/tooltip'
           preventDuplicates:true
         }),
         MatTabsModule,
-        MatTooltipModule
-
+        MatTooltipModule,
+        PaginationModule.forRoot(),
+        ButtonsModule,
+        NgxGalleryModule
     ],
     exports:[
       [MatButtonModule,

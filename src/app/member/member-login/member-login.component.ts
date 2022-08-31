@@ -63,14 +63,6 @@ Login(){
   }
   )
 }
-logout(){
-  this.auth.decodeToken=null;
-  this.auth.currentUser=null;
-  localStorage.removeItem('token');
-  localStorage.removeItem('memberFromDto');
-  this.toastr.success("Logged out Successfully...");
-  this.route.navigate(['/home']);
-}
 
 
 }

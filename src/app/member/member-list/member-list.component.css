@@ -13,7 +13,7 @@
   justify-content: center;
 }
 .form-control{
-width: 5em;
+width: 6em;
 font-family: Georgia, 'Times New Roman', Times, serif;
 font-size: large;
 }
@@ -73,4 +73,10 @@ margin-left: 2px;
   padding-top: 6px;
   padding-bottom: 7px;
   font-family: 'Times New Roman', Times, serif;
+}
+.text-center pagination{
+  justify-content: center;
+}
+.col-md-3 {
+  width: 21%;
 }

@@ -8,23 +8,21 @@
           <div class="example-container container">
 
 
-            <form class="form-container">
+            <form class="form-container" [formGroup]="registerForm" (submit)="register()" >
               <mat-card-header>
                 <mat-card-title>Member Registration</mat-card-title>
               </mat-card-header>
               <hr>
-
                 <mat-card>
-
                   <mat-card-content>
                     <div class="d-inline ">
                       <mat-label >I am a :</mat-label>
-                  <mat-radio-group  class="margin-left"  >
+                  <mat-radio-group  class="margin-left" formControlName="gender" >
                     <mat-radio-button value="male" >Male</mat-radio-button>
-                    <mat-radio-button value="female" >Female</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
                   </mat-radio-group>
                     </div>
-                    <div class="form-group" [formGroup]="registerForm">
+                    <div class="form-group" >
                       <mat-form-field class="full-width">
                       <input matInput placeholder="Email" formControlName="email" required>
                       <mat-error *ngIf="(registerFormControl['email'].touched || submitted)
@@ -38,26 +36,20 @@
                       </mat-error>
                     </mat-form-field>
                     </div>
-                    <div class="form-group"  [formGroup]="registerForm">
+                    <div class="form-group"  >
                       <mat-form-field class="full-width">
-                    <input matInput placeholder="First Name"  required formControlName="firstName">
-                    <mat-error *ngIf="(registerFormControl['firstName'].touched || submitted) && registerFormControl['firstName'].errors?.['required']">First Name Required.</mat-error>
+                    <input matInput placeholder="User Name"  required formControlName="userName">
+                    <mat-error *ngIf="(registerFormControl['userName'].touched || submitted) && registerFormControl['userName'].errors?.['required']">User Name Required.</mat-error>
                   </mat-form-field>
                   </div>
-                  <div class="form-group"  [formGroup]="registerForm">
-                    <mat-form-field class="full-width">
-                  <input matInput placeholder="Last Name" required formControlName="lastName">
-                  <mat-error *ngIf="(registerFormControl['lastName'].touched || submitted) && registerFormControl['lastName'].errors?.['required']">Last Name Required.</mat-error>
-                </mat-form-field>
-                </div>
 
-                <div class="form-group"  [formGroup]="registerForm">
+                <div class="form-group"  >
                   <mat-form-field class="full-width">
-                <input matInput placeholder="Known As" required formControlName="knownAs">
+                <input matInput placeholder="Known As" required formControlName="knownAs" maxlength="15">
                 <mat-error *ngIf="(registerFormControl['knownAs'].touched || submitted) && registerFormControl['knownAs'].errors?.['required']">Known As Required.</mat-error>
               </mat-form-field>
               </div>
-              <div class="form-group"  [formGroup]="registerForm">
+              <div class="form-group"  >
                 <mat-form-field class="full-width">
                   <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" required formControlName="dateOfBirth">
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -65,25 +57,25 @@
                   <mat-error *ngIf="(registerFormControl['dateOfBirth'].touched || submitted) && registerFormControl['dateOfBirth'].errors?.['required']">DOB  Required.</mat-error>
                 </mat-form-field>
             </div>
-            <div class="form-group"  [formGroup]="registerForm">
+            <div class="form-group"  >
               <mat-form-field class="full-width">
             <input matInput placeholder="City" required formControlName="city" >
             <mat-error *ngIf="(registerFormControl['city'].touched || submitted) && registerFormControl['city'].errors?.['required']">City Required.</mat-error>
           </mat-form-field>
           </div>
-          <div class="form-group"  [formGroup]="registerForm">
+          <div class="form-group"  >
             <mat-form-field class="full-width">
           <input matInput placeholder="Country"  required formControlName="country">
           <mat-error *ngIf="(registerFormControl['country'].touched || submitted) && registerFormControl['country'].errors?.['required']">Country Required.</mat-error>
           </mat-form-field>
           </div>
-          <div class="form-group"  [formGroup]="registerForm">
+          <div class="form-group"  >
             <mat-form-field class="full-width">
           <input matInput placeholder="Phone Number" required formControlName="phoneNumber">
           <mat-error *ngIf="(registerFormControl['phoneNumber'].touched || submitted) && registerFormControl['phoneNumber'].errors?.['required']">Phone Number Required.</mat-error>
           </mat-form-field>
           </div>
-              <div class="form-group"  [formGroup]="registerForm">
+              <div class="form-group"  >
                 <mat-form-field class="full-width">
               <input matInput placeholder="Password" [type]="showPassword? 'text':'password'" name="password"  required formControlName="password">
               <mat-icon matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon>
@@ -98,7 +90,7 @@
               </mat-error>
               </mat-form-field>
               </div>
-                <div class="form-group"  [formGroup]="registerForm">
+                <div class="form-group"  >
                   <mat-form-field class="full-width">
                 <input matInput placeholder="Confirm Password" [type]="showPassword? 'text':'password'" name="password"  required formControlName="confirmPassword" (input)="onPasswordInput()">
                 <mat-icon matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon>
@@ -110,25 +102,24 @@
                 </mat-error>
                 </mat-form-field>
                 </div>
-                      <div class="form-group"  [formGroup]="registerForm">
+                      <div class="form-group"  >
                         <mat-form-field class="full-width">
-                        <mat-select placeholder="Select Graduation Year"  required formControlName="graduationYear">
-                          <mat-option value="option">2022</mat-option>
-                          <mat-option value="option">2021</mat-option>
-                          <mat-option value="option">2020</mat-option>
+                        <mat-select  placeholder="Select Graduation Year"  required formControlName="graduationYear">
+                          <mat-option *ngFor="let item of yearOfGraduations" [value]="item">{{item}}</mat-option>
+
                         </mat-select>
                         <mat-error *ngIf="(registerFormControl['graduationYear'].touched || submitted) && registerFormControl['graduationYear'].errors?.['required']">Graduation Year Required.</mat-error>
                       </mat-form-field>
                       </div>
 
                   </mat-card-content>
-                    <div class="form-group"  [formGroup]="registerForm">
+                    <div class="form-group" >
                       <mat-card-actions>
                       <button mat-button class="btn-success" [disabled]="!registerForm.valid">Register</button>
-                      <button mat-button>Cancel</button>
+                      <button mat-button type="button" (click)="cancel()" >Cancel</button>
                       </mat-card-actions>
-                    </div>
 
+                    </div>
                 </mat-card>
 
 
