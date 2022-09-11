@@ -1,0 +1,9 @@
+.page{
+  text-align: center!important;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.row{
+  justify-content: space-between;
+}

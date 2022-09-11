@@ -13,7 +13,7 @@ export class MemberService {
 BaseUrl = environment.MemberApi;
   constructor(private http:HttpClient) { }
 //* get members method
-getMembers(page?:number,itemsPerPage?:number,memberParams?:any):
+getMembers(page?:number,itemsPerPage?:number,memberParams?:any,likeParams?:any):
 Observable<PaginatedResult<any[]>>{
 const paginatedResult:PaginatedResult<any>= new PaginatedResult<any>();
 let params = new HttpParams();
@@ -28,6 +28,13 @@ if (memberParams != null) {
   params = params.append('gender',memberParams.gender);
   params = params.append('orderBy',memberParams.orderBy);
 }
+if(likeParams==='Likers'){
+  params=params.append('Likers',true);
+}
+if (likeParams ==='Likees') {
+  params =params.append('Likees',true);
+}
+
 return this.http.get(this.BaseUrl +'members',{observe:'response', params}).
 pipe(map((response:HttpResponse<any>)=>{
   paginatedResult.result= response.body; ;
@@ -36,6 +43,10 @@ pipe(map((response:HttpResponse<any>)=>{
   return paginatedResult;
 }));
 
+}
+// send like method
+sendLike(memberid:string,recipientid:string){
+return this.http.post(this.BaseUrl+ 'members/' + memberid +'/like/' +recipientid,{});
 }
 //* get member details
 getMember(id:any):Observable<any>{
@@ -52,8 +63,17 @@ getMember(id:any):Observable<any>{
      return valid ? null as any : {invalidPassword:true};
     };
   }
+  // update member
 updateMember(id:any,member:Member) :Observable<any> {
 return this.http.put(this.BaseUrl +'members/'+id,member);
  }
+// set main photo for user
+setMainPhoto(memberId:any,id:any):Observable<any>{
+  return this.http.post(this.BaseUrl + 'members/' +memberId +'/photo/'+ id + '/setMain',{});
+}
+// delete member photo
+deletePhoto(memberId:any,id:any):Observable<any>{
+  return this.http.delete(this.BaseUrl + 'members/' + memberId + '/photo/' + id);
+}
 }
 

@@ -1,3 +1,5 @@
+import { LikeListResolver } from './_resolver/like-list.resolver';
+import { MemberLikeListComponent } from './member/member-like-list/member-like-list.component';
 import { PreventUnsavedDataGuard } from './_guard/prevent-unsaved-data.guard';
 import { MemberEditResolver } from './_resolver/member-edit.resolver';
 import { MemberDetailsResolver } from './_resolver/member-details.resolver';
@@ -39,6 +41,7 @@ const routes: Routes = [
   {path:'messages',component:MemberMessagesComponent},//?resolver
   {path:'member/edit',component:MemberEditComponent,resolve:{member:MemberEditResolver},
                     canDeactivate:[PreventUnsavedDataGuard]},//?canDeactivate and Resolver
+  {path:'like-list', component:MemberLikeListComponent,resolve:{members:LikeListResolver}},
   {path:'members/:id',component: MemberDetailsComponent, resolve:{members:MemberDetailsResolver}},//?resolver
   {path:'about', component:AboutComponent},
   {path: 'mission-statement', component:MissionStatementComponent},

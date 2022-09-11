@@ -33,12 +33,14 @@
                "src/assets/vendor/alertifyjs/build/css/alertify.min.css",
                "src/assets/vendor/alertifyjs/build/css/themes/bootstrap.min.css",
                "src/assets/vendor/bootswatch/dist/litera/bootstrap.min.css",
-               "src/assets/vendor/ngx-toastr/toastr.css"
+               "src/assets/vendor/ngx-toastr/toastr.css",
+               "src/assets/vendor/sweetalert2/dist/sweetalert2.min.css"
             ],
             "scripts": [
               "src/assets/vendor/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/vendor/jquery copy/dist/jquery.min.js",
-              "src/assets/vendor/alertifyjs/build/alertify.min.js"
+              "src/assets/vendor/alertifyjs/build/alertify.min.js",
+              "src/assets/vendor/sweetalert2/dist/sweetalert2.all.min.js"
             ]
           },
           "configurations": {
@@ -112,5 +114,8 @@
       }
     }
   },
-  "defaultProject": "AlumniWebsite.SPA"
+  "defaultProject": "AlumniWebsite.SPA",
+  "cli": {
+    "analytics": false
+  }
 }

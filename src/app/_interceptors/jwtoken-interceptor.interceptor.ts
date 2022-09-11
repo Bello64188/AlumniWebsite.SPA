@@ -20,9 +20,9 @@ token:any;
         headers:request.headers.set('Authorization','Bearer '+ this.token)
         .append('Content-Type','application/json')
         .append('Accept','application/json')
-        .append('Access-Control-Allow-Origin','*')
+       // .append('Access-Control-Allow-Origin',"https://localhost:5001")
         .append('Access-Control-Allow-Headers','Content-Type')
-        .append('Access-Control-Allow-Credentials','true')
+         .append('Access-Control-Allow-Credentials','true')
       });
       return next.handle(tokenizedReq);
     }

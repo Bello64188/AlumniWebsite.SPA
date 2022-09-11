@@ -53,6 +53,9 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import {TimeAgoPipe} from 'time-ago-pipe'
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { FileUploadModule } from 'ng2-file-upload';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { MemberLikeListComponent } from './member/member-like-list/member-like-list.component';
 @Pipe({
   name:'timeAgo',
   pure:false
@@ -91,7 +94,8 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe implements PipeTransform{
       MemberEditComponent,
       MemberMessagesComponent,
       PhotoEditorComponent,
-      TimeAgoExtendsPipe
+      TimeAgoExtendsPipe,
+      MemberLikeListComponent
 
     ],
     imports: [
@@ -122,7 +126,10 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe implements PipeTransform{
         MatTooltipModule,
         PaginationModule.forRoot(),
         ButtonsModule,
-        NgxGalleryModule
+        NgxGalleryModule,
+        FileUploadModule,
+        TabsModule.forRoot(),
+
     ],
     exports:[
       [MatButtonModule,

@@ -28,6 +28,7 @@ photoUrl:string;
       this.member=data['member']
     });
     this.auth.currentPhotoUrl.subscribe(photoUrl=>this.photoUrl=photoUrl);
+
   }
 updateMember(){
   this.memservice.updateMember(this.auth.decodeToken.id,this.member).
@@ -38,5 +39,7 @@ updateMember(){
     this.toastr.error('Failed to Update your profile');
   })
 }
-
+updatePhotoUrl(photourl:any){
+this.member.photoUrl=photourl;
+}
 }
