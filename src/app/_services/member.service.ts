@@ -1,3 +1,4 @@
+import { Message } from 'src/app/_model/Message';
 import { Member } from './../_model/Member';
 import { Observable, map } from 'rxjs';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
@@ -37,7 +38,7 @@ if (likeParams ==='Likees') {
 
 return this.http.get(this.BaseUrl +'members',{observe:'response', params}).
 pipe(map((response:HttpResponse<any>)=>{
-  paginatedResult.result= response.body; ;
+  paginatedResult.result= response.body;
   if(response.headers.get("x-Pagination") !== null)
   paginatedResult.pagination = JSON.parse(response.headers.get("x-Pagination") || '{}');
   return paginatedResult;
@@ -49,6 +50,7 @@ sendLike(memberid:string,recipientid:string){
 return this.http.post(this.BaseUrl+ 'members/' + memberid +'/like/' +recipientid,{});
 }
 //* get member details
+
 getMember(id:any):Observable<any>{
   return this.http.get(this.BaseUrl+'members/'+id);
 }
@@ -74,6 +76,41 @@ setMainPhoto(memberId:any,id:any):Observable<any>{
 // delete member photo
 deletePhoto(memberId:any,id:any):Observable<any>{
   return this.http.delete(this.BaseUrl + 'members/' + memberId + '/photo/' + id);
+}
+
+getMessages(memberId:any,page?:number,itemsPerPage?:number,messageContainer?:string):Observable<PaginatedResult<any[]>>{
+const paginatedResult :PaginatedResult<any> = new PaginatedResult<any>();
+let params = new HttpParams();
+params =params.append('MessageContainer',messageContainer|| '{}');
+if (page != null && itemsPerPage != null) {
+  params =params.append('pageNumber',page);
+  params =params.append('pageSize',itemsPerPage);
+}
+return this.http.get(this.BaseUrl +'members/'+ memberId +'/message', {observe:'response',params:params})
+.pipe(
+  map(response=>{
+    console.log(response.body);
+    paginatedResult.result = response.body
+    if(response.headers.get('x-Pagination') != null)
+    {
+      paginatedResult.pagination= JSON.parse(response.headers.get('x-Pagination') || '{}');
+    }
+    return paginatedResult;
+  })
+);
+}
+getMessageThread(memberId: string,recipientId:string):Observable<any>{
+return this.http.get(this.BaseUrl +'members/' + memberId+ '/message/thread/'+ recipientId);
+}
+
+createMessage(memberId:string, message:Message){
+return this.http.post(this.BaseUrl + 'members/'+ memberId + '/message',message);
+}
+deleteMessage(id:number,memberId:string){
+  return this.http.post(this.BaseUrl + 'members/'+ memberId + '/message/' +id,{});
+}
+markAsRead(memberId:string, messageId:number){
+  this.http.post(this.BaseUrl + 'members/'+ memberId + '/message/' + messageId + '/read',{}).subscribe();
 }
 }
 

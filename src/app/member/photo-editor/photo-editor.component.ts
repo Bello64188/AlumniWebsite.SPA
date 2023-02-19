@@ -103,15 +103,15 @@ initialUploader(){
           if(result.isConfirmed){
             return this.membService.deletePhoto(this.auth.decodeToken.id,id)
             .subscribe(()=>{
-            this.photos.slice(this.photos.findIndex(p=>p.id==id),1);
+            this.photos.splice(this.photos.findIndex(p=>p.id==id),1);
             Swal.fire('Delete!', '', 'success');
             },
             (error)=>{
             this.toastr.error("Failed to delete the photo");
             },
-            ()=>{
-            this.route.navigateByUrl('/members/'+ this.auth.decodeToken.id);
-            }
+            // ()=>{
+            // this.route.navigateByUrl('/members/'+ this.auth.decodeToken.id);
+            // }
             );
           }else if(result.isDenied){
             Swal.fire('Delete Cancel', '', 'info');

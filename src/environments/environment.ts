@@ -6,7 +6,8 @@ export const environment = {
   production: false ,
  weatherUrl : "https://localhost:5001/WeatherForecast",
  AccountUrl:  "https://localhost:5001/api/Account/",
- MemberApi:"https://localhost:5001/api/"
+ MemberApi:"https://localhost:5001/api/",
+ AdminApi :"https://localhost:5001/api/Admin/"
 
 };
 

@@ -43,6 +43,7 @@ yearOfGraduations:number[]= [1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2
   this.route.data.subscribe(data=>{
   this.members=data['members'].result;
   this.pagination=data['members'].pagination;
+  console.log(this.members)
   });
   this.memberParams.gender=this.member.gender=== 'female'? 'male':'female';
   this.memberParams.orderBy ='lastactive';

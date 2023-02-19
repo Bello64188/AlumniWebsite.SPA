@@ -30,12 +30,12 @@
 }
 .member-icons{
 position: absolute;
-bottom: -30%;
+bottom: -40%;
 left: 0;
 right: 0;
 opacity: 0;
 }
 .img-icons-wrapper:hover .member-icons{
-  bottom: 4em;
+  bottom: 5em;
   opacity: 1;
 }

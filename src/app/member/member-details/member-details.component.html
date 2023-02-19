@@ -30,11 +30,11 @@
        </div>
           <div class="icons">
             <button mat-raised-button
-        matTooltip="Message user">
+        matTooltip="Message user" (click)="tabChanged()">
         <i class="fa fa-envelope"></i>
             </button>
             <button mat-raised-button
-            matTooltip="Like user">
+            matTooltip="Like user" (click)="sendLike(members.id)">
             <i class="fa fa-heart"></i>
                 </button>
         </div>
@@ -50,7 +50,7 @@
     </div>
     <div class="col-md-7">
       <p class="h4">About {{members.knownAs}}</p>
-      <mat-tab-group>
+      <mat-tab-group #memberTabs #tab>
         <mat-tab label="Description"> {{members.introduction}} </mat-tab>
         <mat-tab label="Interests">{{members.interests}}</mat-tab>
         <mat-tab label="Photos">
@@ -59,7 +59,9 @@
           </div>
 
         </mat-tab>
-        <mat-tab label="Messages">message here</mat-tab>
+        <mat-tab label="Messages" >
+       <app-message-thread [memberId]="members.id"></app-message-thread>
+        </mat-tab>
       </mat-tab-group>
     </div>
   </div>

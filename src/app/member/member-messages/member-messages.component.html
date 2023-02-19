@@ -1,1 +1,62 @@
-<p>member-messages works!</p>
+
+<div class="container">
+  <div class="row button">
+    <div class="btn-group ">
+      <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="unread"
+    (click)="loadMessages()"><i class="fa fa-envelope" aria-hidden="true"></i> Unread</button>
+    <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="inbox"
+    (click)="loadMessages()"><i class="fa fa-envelope-open" aria-hidden="true"></i> Inbox</button>
+    <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="outbox"
+    (click)="loadMessages()"> <i class="fa fa-paper-plane"></i>Outbox</button>
+  </div>
+    </div>
+
+    <div class="row" *ngIf="messages.length==0">
+      <h1>No Message</h1>
+    </div>
+    <div class="row" *ngIf="messages.length>0">
+  <table class=" table table-hover">
+    <thead>
+      <tr>
+
+      <th style="width: 40%;"> Message</th>
+      <th style="width: 20%;">From/To</th>
+      <th style="width: 20%;">Sent/Received</th>
+      <th style="width: 20%;">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let message of messages" [routerLink]="['/members',messageContainer=='outbox'? message.recipientId: message.senderId]" [queryParams]="{tab:'3'}">
+      <td style="width: 40%;">{{message.content}}</td>
+       <td style="width: 20%;">
+
+        <div *ngIf="messageContainer !='outbox'">
+          <img src="{{message?.senderPhotoUrl}}" alt="{{message.senderKnownAs}}" class="img-circle rounded-circle">
+          <strong id="knownAs">{{message.senderKnownAs}}</strong>
+        </div>
+        <div *ngIf="messageContainer =='outbox'">
+          <img src="{{message?.recipientPhotoUrl}}" alt="{{message.recipientKnownAs}}" class="img-circle rounded-circle">
+          <strong id="knownAs">{{message.recipientKnownAs}}</strong>
+        </div>
+      </td>
+      <td style="width: 20%;">{{message.messageSent|timeAgo}}</td>
+      <td style="width: 20%;">
+        <button class="btn btn-danger" (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+    </div>
+</div>
+
+            <div class="text-center">
+
+              <pagination [boundaryLinks]="true"
+              [totalItems]="pagination.totalItems"
+              [itemsPerPage]="pagination.itemsPerPage"
+              (pageChanged)="pageChanged($event)"
+              [(ngModel)]="pagination.currentPage"
+                        previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+              </pagination>
+            </div>

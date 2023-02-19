@@ -19,7 +19,7 @@ import { PaginatedResult } from '../_model/Pagination';
  */
 export class MemberListResolver implements Resolve<PaginatedResult<any[]>> {
   pageNumber=1;
-  pageSize=5;
+  pageSize=10;
   constructor(private memberService:MemberService,
     private route:Router,private toastr:ToastrService){}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {

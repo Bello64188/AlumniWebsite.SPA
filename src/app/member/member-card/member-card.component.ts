@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./member-card.component.css']
 })
 export class MemberCardComponent implements OnInit {
-
+photoUrl:string;
   constructor(private memberserive:MemberService,
     private toastr:ToastrService,
     private auth:AuthService) { }

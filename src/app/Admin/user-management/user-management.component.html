@@ -1,0 +1,34 @@
+<div class="container ml-auto mr-auto w-60 mt-3 mb-3 ">
+
+    <div class="form-group mb-2 w-25">
+      <input type="text"  class="form-control"  (blur)="onBlurUsername($event)"
+       placeholder="Search By User Name" [(ngModel)]="userName" name="userName">
+    </div>
+  <div class="table-wrapper-scroll-y my-custom-scrollbar">
+  <table class="table table-bordered table-striped table-hover overflow-auto">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Active Roles</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of members |filter:userName:'userName' ">
+        <th class="counterCell"></th>
+        <td>{{user.userName|uppercase}}</td>
+        <td *ngIf="user.roles==''">Member</td>
+        <td *ngIf="user.roles!=''">{{user.roles}}</td>
+        <td>
+          <button (click)="openRolesModal(user)" class="btn btn-sm btn- primary edit-btn">Edit</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+

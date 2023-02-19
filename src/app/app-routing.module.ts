@@ -1,3 +1,7 @@
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { PhotoManagementComponent } from './Admin/photo-management/photo-management.component';
+import { UserManagementComponent } from './Admin/user-management/user-management.component';
+import { MessageResolver } from './_resolver/message.resolver';
 import { LikeListResolver } from './_resolver/like-list.resolver';
 import { MemberLikeListComponent } from './member/member-like-list/member-like-list.component';
 import { PreventUnsavedDataGuard } from './_guard/prevent-unsaved-data.guard';
@@ -26,10 +30,12 @@ import { ForgetPasswordComponent } from './member/forget-password/forget-passwor
 import { MemberRegisterComponent } from './member/member-register/member-register.component';
 import { MemberLoginComponent } from './member/member-login/member-login.component';
 import { HomeComponent } from './home/home.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './_guard/admin.guard';
 
 const routes: Routes = [
+  {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
   {path:'login',component:MemberLoginComponent},
   {path:'register', component:MemberRegisterComponent},
@@ -38,9 +44,9 @@ const routes: Routes = [
   {path:'member-card',component:MemberCardComponent}, //? remove later.
   {path: 'members', component:MemberListComponent,resolve:{members:MemberListResolver}},//?resolver
   {path: 'member-details', component:MemberDetailsComponent},//?resolver
-  {path:'messages',component:MemberMessagesComponent},//?resolver
   {path:'member/edit',component:MemberEditComponent,resolve:{member:MemberEditResolver},
                     canDeactivate:[PreventUnsavedDataGuard]},//?canDeactivate and Resolver
+  {path:'messages',component:MemberMessagesComponent,resolve:{messages:MessageResolver}},
   {path:'like-list', component:MemberLikeListComponent,resolve:{members:LikeListResolver}},
   {path:'members/:id',component: MemberDetailsComponent, resolve:{members:MemberDetailsResolver}},//?resolver
   {path:'about', component:AboutComponent},
@@ -54,7 +60,10 @@ const routes: Routes = [
   {path:'senior-section', component:SeniorSectionComponent},
   {path: 'latest-news', component:LatestNewsComponent},
   {path: 'contact-us',component:ContactUsComponent},
-  {path: 'not-found',component:NotFoundComponent}
+  {path: 'not-found',component:NotFoundComponent},
+  {path:'user-management',component:UserManagementComponent},
+  {path:'photo-management',component:PhotoManagementComponent},
+  {path:'admin',component:AdminDashboardComponent , canActivate:[AdminGuard]}
 ];
 
 @NgModule({

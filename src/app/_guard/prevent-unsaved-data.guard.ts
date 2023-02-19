@@ -2,10 +2,15 @@ import { MemberEditComponent } from './../member/member-edit/member-edit.compone
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-
+export interface IDeactivate{
+  // using this interface multiple component can use this deactvate guard
+  // just implement this interface in the component
+  CanExit():Observable<boolean>|Promise<boolean>
+  }
 @Injectable({
   providedIn: 'root'
 })
+
 export class PreventUnsavedDataGuard implements CanDeactivate<MemberEditComponent> {
   canDeactivate(
     component: MemberEditComponent,

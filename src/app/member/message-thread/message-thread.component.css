@@ -1,0 +1,77 @@
+.form-control {
+  width: 87%;
+  font-size: medium;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.card{
+  margin-top: 1rem;
+  overflow-y: scroll;
+  height:500px;
+}
+.btn-sm{
+  border-radius: 3px;
+  height: 2.7em;
+  font-size: 13px;
+}
+
+/* Chat containers */
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Darker chat container */
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+/* Clear floats */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style images */
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+/* Style the right image */
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+/* Style time text */
+.time-right {
+  float: right;
+  color: #aaa;
+  font-size:small;
+}
+
+/* Style time text */
+.time-left {
+  float: left;
+  color: #999;
+  font-size:small;
+  line-height: 2em;
+}
+li{
+  list-style: none;
+}
+ul {
+  padding-left: 0;
+}
+.text-danger,.text-success {
+  font-size:small;
+}

@@ -1,0 +1,20 @@
+.img-circle {
+  width: 50px
+}
+.btn-group{
+  margin-top: 1em;
+  margin-bottom: 0.7rem;
+  width: 30%;
+}
+#knownAs{
+  font-weight: bolder;
+  margin-left: 6px;
+  font-family:Arial, Helvetica, sans-serif
+}
+.text-center{
+  display:flex;
+  justify-content:center;
+}
+tbody:hover{
+  cursor: pointer;
+}

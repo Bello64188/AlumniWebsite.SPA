@@ -1,8 +1,11 @@
+import { MemberService } from 'src/app/_services/member.service';
+import { FormControl } from '@angular/forms';
+import { MatTabChangeEvent, MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './../../_services/auth.service';
 import { Member } from './../../_model/Member';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 
 @Component({
@@ -15,7 +18,10 @@ members:any;
 photoUrl:string;
 galleryOptions:NgxGalleryOptions[];
 galleryImages:NgxGalleryImage[];
-  constructor(private auth:AuthService,private toastr:ToastrService,private route:ActivatedRoute) { }
+@ViewChild('memberTabs',{static:false}) memberTabs:MatTabGroup;
+@ViewChild('tab',{static:true}) queryTab:MatTabGroup;
+change:MatTabGroup;
+  constructor(private auth:AuthService,private toastr:ToastrService,private route:ActivatedRoute, private memberService:MemberService) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(data=>{
@@ -33,7 +39,9 @@ this.galleryOptions=[{
   preview:false
  }];
  this.galleryImages= this.getImage();
+  this.getTab();
   }
+
 getImage(){
   const imageUrls=[];
   for (let i = 0; i < this.members.photos.length; i++) {
@@ -47,4 +55,29 @@ getImage(){
   }
 return imageUrls;
 }
+tabChanged(){
+  const tabGroup = this.memberTabs;
+  if(!tabGroup||!(tabGroup instanceof MatTabGroup))return;
+  tabGroup.selectedIndex=3;
+}
+getTab(){
+  let tabs:any;
+  this.route.queryParamMap.subscribe(params=>{
+ tabs= params.get('tab');
+  })
+  const tabGroup = this.queryTab;
+  if(!tabGroup||!(tabGroup instanceof MatTabGroup))return;
+  tabGroup.selectedIndex=tabs;
+
+}
+
+sendLike(id:string){
+  this.memberService.sendLike(this.auth.decodeToken.id,id)
+  .subscribe(()=>{
+    this.toastr.success("you have Like: " + this.members.knownAs);
+  },
+  (error)=>{
+    this.toastr.error("Have you add Member before? Please Check.");
+  })
+  }
 }

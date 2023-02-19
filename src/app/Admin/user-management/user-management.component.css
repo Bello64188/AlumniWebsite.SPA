@@ -1,0 +1,25 @@
+
+table {
+  width: 100%;
+}
+.my-custom-scrollbar {
+  position: relative;
+  height: 25em;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }
+.edit-btn{
+  background-color: #59c1dc96;
+  color:black;
+  font-size: 13px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+table {
+  counter-reset: tableCount;
+}
+.counterCell:before {
+  content: counter(tableCount);
+  counter-increment: tableCount;
+}

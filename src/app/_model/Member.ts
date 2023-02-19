@@ -18,5 +18,7 @@ export interface Member {
   introduction?:string;
   lookingFor?:string;
   Photo?:Photo[];
+  roles?:string[];
+  token?:string;
 
 }

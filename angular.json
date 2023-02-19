@@ -37,10 +37,11 @@
                "src/assets/vendor/sweetalert2/dist/sweetalert2.min.css"
             ],
             "scripts": [
-              "src/assets/vendor/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/vendor/jquery copy/dist/jquery.min.js",
               "src/assets/vendor/alertifyjs/build/alertify.min.js",
-              "src/assets/vendor/sweetalert2/dist/sweetalert2.all.min.js"
+              "src/assets/vendor/sweetalert2/dist/sweetalert2.all.min.js",
+              "src/assets/vendor/bootstrap/dist/js/bootstrap.js"
+
             ]
           },
           "configurations": {

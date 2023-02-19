@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { faArrowRightToBracket,
@@ -26,9 +27,12 @@ faphone = faPhoneSquare;
 famemory= faArrowRight;
 facalendar= faCalendar
 faevent =faCalendarTimes
-  constructor() { }
+  constructor( private authService:AuthService) { }
 
   ngOnInit(): void {
 //  $(window).on("load",()=>{ alert('welcome to Jquery');})
+  }
+  logOut(){
+    this.authService.logout();
   }
  }

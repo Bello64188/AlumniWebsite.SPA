@@ -56,6 +56,17 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MemberLikeListComponent } from './member/member-like-list/member-like-list.component';
+import { MessageThreadComponent } from './member/message-thread/message-thread.component';
+import { UserManagementComponent } from './Admin/user-management/user-management.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { FilterPipe } from './pipes/filter.pipe';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { RoleModalComponent } from './modal/role-modal/role-modal.component';
+import { PhotoManagementComponent } from './Admin/photo-management/photo-management.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { HasRoleDirective } from './_directive/has-role.directive';
+
 @Pipe({
   name:'timeAgo',
   pure:false
@@ -95,7 +106,14 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe implements PipeTransform{
       MemberMessagesComponent,
       PhotoEditorComponent,
       TimeAgoExtendsPipe,
-      MemberLikeListComponent
+      MemberLikeListComponent,
+      MessageThreadComponent,
+      UserManagementComponent,
+      FilterPipe,
+      RoleModalComponent,
+      PhotoManagementComponent,
+      AdminDashboardComponent,
+      HasRoleDirective
 
     ],
     imports: [
@@ -129,6 +147,10 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe implements PipeTransform{
         NgxGalleryModule,
         FileUploadModule,
         TabsModule.forRoot(),
+        MatPaginatorModule,
+        MatTableModule,
+        ModalModule.forRoot()
+
 
     ],
     exports:[

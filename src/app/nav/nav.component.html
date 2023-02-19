@@ -8,7 +8,8 @@
       <ul class="clearfix">
         <li><a [routerLink]="['/contact-us']" > Contact Us</a></li>
         <li><a [routerLink]="['/login']">Member Login</a></li>
-        <li><a href="" class="members"> Members-Get Listed Today</a></li>
+        <li ><a [routerLink]="['/admin']" >Admin</a></li>
+        <!-- <li><a href="" class="members"> Members-Get Listed Today</a></li> -->
 
       </ul>
       <div class="social-icon clearfix">
@@ -135,6 +136,8 @@
                   <a class="dropdown-item"  [routerLink]="['/login']">Member Login <fa-icon [icon]="faLogin"></fa-icon></a>
                   <a class="dropdown-item" [routerLink]="['/register']" >Join Today <fa-icon [icon]="fajoin"></fa-icon></a>
                   <a class="dropdown-item" [routerLink]="['/contact-us']"> Contact Us <fa-icon [icon]="faphone"></fa-icon> </a>
+                  <a class="dropdown-item" (click)="logOut()">Logout <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+
                 </div>
               </div>
             </li>

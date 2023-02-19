@@ -5,7 +5,7 @@ import { Member } from './../_model/Member';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Observable, map ,retry,BehaviorSubject} from "rxjs";
+import { Observable, map ,retry,BehaviorSubject,ReplaySubject} from "rxjs";
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,7 +14,9 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   public jwtHelperService:JwtHelperService = new JwtHelperService()
   decodeToken:any;
-  currentUser:any;
+  currentUser:any
+  private currentUserSource= new ReplaySubject<Member>(1,120000);
+  currentMember$= this.currentUserSource.asObservable();
   private photoUrl = new BehaviorSubject<string>('../../assets/images/graduateImg.jpg');
   currentPhotoUrl = this.photoUrl.asObservable();
   BaseUrl= environment.AccountUrl;
@@ -34,11 +36,12 @@ export class AuthService {
     .pipe(map((response:any)=>{
       const member = response;
       if(member){
+        this.setCurrentMember(member);
         localStorage.setItem('token',member.token);
         localStorage.setItem('memberFromDto',JSON.stringify(member.memberFromDto));
         this.decodeToken = this.jwtHelperService.decodeToken(member.token);
-        console.log(this.decodeToken);
         this.currentUser= member.memberFromDto;
+        this.currentUserSource= member.memberFromDto;
         if(this.currentUser.photoUrl !== null)
         this.changeMemberPhoto(this.currentUser.photoUrl);
         else
@@ -79,6 +82,16 @@ export class AuthService {
 }
 getActiveUser(){
   return this.jwtHelperService.decodeToken(this.jwtHelperService.tokenGetter());
+}
+setCurrentMember(member:Member){
+member.roles=[];
+const roles= this.getDecodeToken(member.token).role;
+Array.isArray(roles)?member.roles=roles:member.roles.push(roles);
+this.currentUserSource.next(member);
+console.log(this.currentUserSource);
+}
+getDecodeToken(token:any){
+return JSON.parse(atob(token.split('.')[1]));
 }
 }
 

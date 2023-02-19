@@ -1,0 +1,40 @@
+<div class="card">
+
+  <div class="card-body">
+    <!-- checking message if is empty -->
+    <div *ngIf="messages.length===0">
+      <p>No Message yet..... Say Hello by using the message box.</p>
+    </div>
+    <ul>
+      <li *ngFor="let message of messages">
+        <!-- message i sent to them -->
+        <div class="container" *ngIf="message.senderId==memberId">
+          <img src="{{message.senderPhotoUrl}}" alt="{{message.senderKnownAs}}">
+          <strong class="primary-font">{{message.senderKnownAs}}</strong>
+          <p>{{message.content}}</p>
+          <span class="time-right"><i class="fa fa-clock-o"></i> {{message.messageSent|timeAgo}}</span>
+        </div>
+
+        <!-- message they sent to me -->
+        <div class="container darker" *ngIf="message.senderId!=memberId">
+          <img src="{{message.senderPhotoUrl}}" alt="{{message.senderKnownAs}}" class="right">
+          <strong class="primary-font">{{message.senderKnownAs}}</strong>
+          <p>{{message.content}}</p>
+          <span class="text-danger" *ngIf="!message.isRead"><span class="time-left "><i class="fa fa-clock-o"></i> {{message.messageSent|timeAgo}}</span>(Unread)</span>
+          <span class="text-success" *ngIf="message.isRead">(Read {{message.dateRead|timeAgo}})</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="card-footer">
+ <!-- messsage text box -->
+    <form class="form-inline" #messageForm="ngForm" (ngSubmit)="sendMessages()">
+      <input type="text"
+      required
+      name="content"
+      [(ngModel)]="newMessage.content"
+      class="form-control mb-2" placeholder="Send a private message">
+      <button type="submit" class="btn btn-primary btn-sm mb-2" [disabled]="!messageForm.valid"> Send <i class="fa fa-paper-plane"></i></button>
+    </form>
+  </div>
+</div>
