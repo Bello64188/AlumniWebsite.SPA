@@ -35,7 +35,7 @@ likeParams:string;
 
     },
     (error:any)=>{
-      this.toastr.error("Unable to fetch the Member, Login Please.");
+      this.toastr.error("Unable to fetch the member, login please.");
     }
     )
   }
@@ -48,7 +48,7 @@ likeParams:string;
 
     },
     (error:any)=>{
-      this.toastr.error("Unable to fetch the Member, Login Please.");
+      this.toastr.error("Unable to fetch the member, login please.");
     }
     )
   }

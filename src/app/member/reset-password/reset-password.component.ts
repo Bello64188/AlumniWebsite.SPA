@@ -1,3 +1,6 @@
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from './../../_services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MemberService } from 'src/app/_services/member.service';
 import { FormBuilder,
          FormGroup,
@@ -13,12 +16,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reset-password.component.css']
 })
 export class ResetPasswordComponent implements OnInit {
+
 resetForm:FormGroup;
+token:string;
+email:string;
+resetPasswordDto:ResetPasswordDto;
 public showPassword:boolean=false;
-  constructor(private fb:FormBuilder, private member:MemberService) { }
+  constructor(private fb:FormBuilder, private member:MemberService,
+     private activeRout:ActivatedRoute,private auth:AuthService,
+     private toastr:ToastrService,private router:Router) { }
 
   ngOnInit(): void {
     this.createRestForm();
+   this.activeRout.queryParamMap.subscribe((params:any)=>{
+    this.token=params.get('token');
+    this.email=params.get('email');
+   })
   }
   public togglePasswordVisibility():void{
   this.showPassword=!this.showPassword;
@@ -46,5 +59,33 @@ get resetFormControl()
 {
 return this.resetForm.controls;
 }
+disableButton(event:MouseEvent){
+  (event.target as HTMLButtonElement).disabled=true
+    }
+resetPassword(){
+ this.resetPasswordDto={
+email:this.email,
+token:this.token,
+password:this.resetForm.value.password,
+confirmPassword:this.resetForm.value.confirmPassword
+ }
+  this.auth.ResetPassword(this.resetPasswordDto).subscribe(()=>{
+    this.resetForm.reset();
+this.toastr.success('Your password has been reset successfully.');
+  },(e)=>{
+    this.toastr.error('Unable to reset the password, please try again later.');
+    this.resetForm.reset();
+    this.router.navigate(['/reset-password']);
+  },()=>{
+this.router.navigate(['/login']);
+  })
+}
+
+}
+export class ResetPasswordDto{
+  email:string;
+  token:string;
+  password:string;
+  confirmPassword:string;
 
 }

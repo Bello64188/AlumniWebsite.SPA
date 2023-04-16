@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable, map ,retry,BehaviorSubject,ReplaySubject} from "rxjs";
 import { environment } from 'src/environments/environment';
+import { ResetPasswordDto } from '../member/reset-password/reset-password.component';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
   public jwtHelperService:JwtHelperService = new JwtHelperService()
   decodeToken:any;
   currentUser:any
-  private currentUserSource= new ReplaySubject<Member>(1,120000);
+  private currentUserSource= new ReplaySubject<Member>(1,60000);
   currentMember$= this.currentUserSource.asObservable();
   private photoUrl = new BehaviorSubject<string>('../../assets/images/graduateImg.jpg');
   currentPhotoUrl = this.photoUrl.asObservable();
@@ -60,6 +61,12 @@ export class AuthService {
     return this.http.post(this.BaseUrl + 'register',member).
     pipe(retry(2));
   }
+  ForgetPassword(model:ForgetPassword){
+    return this.http.post(this.BaseUrl+'forgetPassword',model);
+  }
+  ResetPassword(model:ResetPasswordDto){
+    return this.http.post(this.BaseUrl+ 'resetPassword',model);
+  }
   getToken(){ //? getting token from local storage
     let token = localStorage.getItem('token');
     return token;
@@ -77,7 +84,7 @@ export class AuthService {
   this.currentUser=null;
   localStorage.removeItem('token');
   localStorage.removeItem('memberFromDto');
-  this.toastr.success("Logged out Successfully...");
+  this.toastr.success("Logged out successfully...");
   this.route.navigate(['/home']);
 }
 getActiveUser(){
@@ -94,6 +101,9 @@ getDecodeToken(token:any){
 return JSON.parse(atob(token.split('.')[1]));
 }
 }
-
+export class ForgetPassword{
+  email:string
+  clientUrl:string
+}
 
 

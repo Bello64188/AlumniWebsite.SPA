@@ -73,16 +73,16 @@ register(){
   if (this.registerForm.valid) {
     this.model= Object.assign({},this.registerForm.value);
     this.auth.Register(this.model).subscribe(()=>{
-    this.toastr.success("Register Successfully...");
+    this.toastr.success("Registered successfully...");
 
     },
     (error:any)=>{
-      this.toastr.error("Registration Failed.");
+      this.toastr.error("Registration failed.");
     },
     ()=>{
       this.auth.login(this.model).subscribe(()=>{
       this.route.navigate(['/members']);
-      this.toastr.info("Welcome to Modebe Alumni Page")
+      this.toastr.info("Welcome to Modebe Alumni page")
       });
     }
     );

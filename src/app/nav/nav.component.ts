@@ -30,9 +30,10 @@ faevent =faCalendarTimes
   constructor( private authService:AuthService) { }
 
   ngOnInit(): void {
-//  $(window).on("load",()=>{ alert('welcome to Jquery');})
+
   }
   logOut(){
     this.authService.logout();
   }
+
  }

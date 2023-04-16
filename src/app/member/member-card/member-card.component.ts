@@ -23,7 +23,7 @@ this.memberserive.sendLike(this.auth.decodeToken.id,id)
   this.toastr.success("you have Like: " + this.member.knownAs);
 },
 (error)=>{
-  this.toastr.error("Have you add Member before? Please Check.");
+  this.toastr.error("Have you add member before? please check.");
 })
 }
 }

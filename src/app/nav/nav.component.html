@@ -1,147 +1,146 @@
   <div class="container">
     <div class="image-logo">
-      <a href="#">
-        <img src="../../assets/images/modebe.png" alt="modebe image">
-      </a>
-      <h1>MODEBE MEMORIAL SECONDARY SCHOOL ONITSHA</h1>
+      <div class="row d-flex justify-content-between">
+        <div class="col-md-2">
+          <a [routerLink]="['/home']">
+            <img src="../../assets/images/modebe.png" alt="modebe image">
+          </a>
+        </div>
+        <div class="col-md-6">
+          <h1>MODEBE MEMORIAL SECONDARY SCHOOL ONITSHA</h1>
+        </div>
+        <div class="col-md-4">
+          <ul class="clearfix">
+            <li><a [routerLink]="['/contact-us']" > Contact Us</a></li>
+            <li><a [routerLink]="['/login']">Member Login</a></li>
+            <li ><a [routerLink]="['/admin']" >Admin</a></li>
+            <!-- <li><a href="" class="members"> Members-Get Listed Today</a></li> -->
 
-      <ul class="clearfix">
-        <li><a [routerLink]="['/contact-us']" > Contact Us</a></li>
-        <li><a [routerLink]="['/login']">Member Login</a></li>
-        <li ><a [routerLink]="['/admin']" >Admin</a></li>
-        <!-- <li><a href="" class="members"> Members-Get Listed Today</a></li> -->
-
-      </ul>
-      <div class="social-icon clearfix">
-        <a href=""><i class="fa fa-envelope" aria-hidden="true"></i></a>
-      <a href=""> <i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-      <a href="" >
-        <i class="fa fa-twitter"></i>
-      </a>
-      <a href=""> <i class="fa fa-linkedin" aria-hidden="true"></i></a>
-      <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+          </ul>
+        </div>
       </div>
-    </div>
-
+       </div>
   </div>
-  <div class="container-fluid ">
-      <nav class="navbar navbar-expand-lg   lockedonscroll navbar-dark bg-primary">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <!-- Home -->
-            <li class="nav-item ">
-              <a class="nav-link active" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <!-- About -->
-                  <li class="nav-item">
-                    <div class="btn-group" dropdown>
-                      <a id="button-basic" dropdownToggle type="button" class="nav-link dropdown-toggle"
-                      aria-expanded="false" [routerLink]="['/about']">
-                        About <span class="caret"></span>
-                      </a>
-                      <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-                          role="menu" aria-labelledby="button-basic">
-                        <a class="dropdown-item" [routerLink]="['/mission-statement']">Our Vision|Mission Statement|Core Value</a>
-                        <a class="dropdown-item" [routerLink]="['/principal-message']"> Principal's Welcome</a>
-                        <a class="dropdown-item" [routerLink]="['/educational-policy']">School Policy</a>
-                        <!-- <a class="dropdown-item" href="#">Awards </a>
-                        <a class="dropdown-item" href="#">Career</a> -->
-                    </div>
-                    </div>
-                  </li>
-                  <!-- Academic -->
-                  <li class="nav-item">
-                    <div class="btn-group" dropdown [autoClose]="true" container="body">
-                  <a id="button-nested" dropdownToggle type="button" class="nav-link dropdown-toggle"
-                          aria-controls="dropdown-nested">
-                    Academic<span class="caret"></span>
-                </a>
-                  <div id="dropdown-nested" *dropdownMenu class="dropdown-menu"
-                      role="menu" aria-labelledby="button-nested">
-                    <a class="dropdown-item" [routerLink]="['/calendar']" >Calendar</a>
-                    <div role="menuitem" dropdown triggers="mouseover" placement="right" container="body">
-                      <a dropdownToggle class="dropdown-item dropdown-toggle"
-                          (click)="false">Schools<span class="caret"></span></a>
-                      <div *dropdownMenu class="dropdown-menu" role="menu">
-                        <a class="dropdown-item" [routerLink]="['/junior-school']" >Junior Secondary</a>
-                        <a class="dropdown-item" [routerLink]="['/senior-school']" >Senior Secondary</a>
-                      </div>
-                      </div>
-                    </div>
-                </div>
+  <div class="container-fluid ">
+    <nav class="navbar navbar-expand-lg   lockedonscroll navbar-dark bg-primary">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <!-- Home -->
+          <li class="nav-item ">
+            <a class="nav-link active nav-tag" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <!-- About -->
+                <li class="nav-item">
+                  <div class="btn-group" dropdown>
+                    <a id="button-basic" dropdownToggle type="button" class="nav-link dropdown-toggle nav-tag"
+                    aria-expanded="false" [routerLink]="['/about']">
+                      About <span class="caret"></span>
+                    </a>
+                    <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                        role="menu" aria-labelledby="button-basic">
+                      <a class="dropdown-item" [routerLink]="['/mission-statement']">Our Vision|Mission Statement|Core Value</a>
+                      <a class="dropdown-item" [routerLink]="['/principal-message']"> Principal's Welcome</a>
+                      <a class="dropdown-item" [routerLink]="['/educational-policy']">School Policy</a>
+                      <!-- <a class="dropdown-item" href="#">Awards </a>
+                      <a class="dropdown-item" href="#">Career</a> -->
+                  </div>
+                  </div>
                 </li>
-                <!-- Admission -->
+                <!-- Academic -->
                 <li class="nav-item">
                   <div class="btn-group" dropdown [autoClose]="true" container="body">
-                <a id="button-nested" dropdownToggle type="button" class="nav-link dropdown-toggle"
+                <a id="button-nested" dropdownToggle type="button" class="nav-link dropdown-toggle nav-tag"
                         aria-controls="dropdown-nested">
-                  Admission<span class="caret"></span>
+                  Academic<span class="caret"></span>
               </a>
                 <div id="dropdown-nested" *dropdownMenu class="dropdown-menu"
                     role="menu" aria-labelledby="button-nested">
+                  <a class="dropdown-item" [routerLink]="['/calendar']" >Calendar</a>
                   <div role="menuitem" dropdown triggers="mouseover" placement="right" container="body">
                     <a dropdownToggle class="dropdown-item dropdown-toggle"
-                        (click)="false">Admission Intro.<span class="caret"></span></a>
+                        (click)="false">Schools<span class="caret"></span></a>
                     <div *dropdownMenu class="dropdown-menu" role="menu">
-                      <a class="dropdown-item" [routerLink]="['/junior-section']">Junior Section</a>
-                      <a class="dropdown-item" [routerLink]="['/senior-section']">Senior Section</a>
+                      <a class="dropdown-item" [routerLink]="['/junior-school']" >Junior Secondary</a>
+                      <a class="dropdown-item" [routerLink]="['/senior-school']" >Senior Secondary</a>
                     </div>
                     </div>
-                    <!-- <div role="menuitem" dropdown triggers="mouseover" placement="right" container="body">
-                      <a dropdownToggle class="dropdown-item dropdown-toggle"
-                        (click)="false">Admission Process<span class="caret"></span></a>
-                      <div *dropdownMenu class="dropdown-menu" role="menu">
-                        <a class="dropdown-item" routerLink="." fragment="nested-dropdowns">Admission Process</a>
-                        <a class="dropdown-item" routerLink="." fragment="nested-dropdowns">Apply for Admission</a>
-                      </div>
-                      <a class="dropdown-item" routerLink="." fragment="nested-dropdowns">Scolarships</a>
-                      <a class="dropdown-item" routerLink="." fragment="nested-dropdowns">School Fees</a>
-                    </div> -->
                   </div>
               </div>
               </li>
-              <!-- LatestNews -->
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/latest-news']">Latest News</a>
-            </li>
-            <!-- Event -->
-            <!-- <li class="nav-item">
-              <div class="btn-group" dropdown>
-                <a id="button-basic" dropdownToggle type="button" class="nav-link dropdown-toggle"
-                aria-expanded="false">
-                  Upcoming Events <span class="caret"></span>
-              </a>
-                <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-                    role="menu" aria-labelledby="button-basic">
-                  <a class="dropdown-item" href="#">All Events <fa-icon [icon]="facalendar"></fa-icon> </a>
-                  <a class="dropdown-item" href="#">Event Calender <fa-icon [icon]="faevent"></fa-icon></a>
-
+              <!-- Admission -->
+              <li class="nav-item">
+                <div class="btn-group" dropdown [autoClose]="true" container="body">
+              <a id="button-nested" dropdownToggle type="button" class="nav-link dropdown-toggle nav-tag"
+                      aria-controls="dropdown-nested">
+                Admission<span class="caret"></span>
+            </a>
+              <div id="dropdown-nested" *dropdownMenu class="dropdown-menu"
+                  role="menu" aria-labelledby="button-nested">
+                <div role="menuitem" dropdown triggers="mouseover" placement="right" container="body">
+                  <a dropdownToggle class="dropdown-item dropdown-toggle"
+                      (click)="false">Admission Intro.<span class="caret"></span></a>
+                  <div *dropdownMenu class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" [routerLink]="['/junior-section']">Junior Section</a>
+                    <a class="dropdown-item" [routerLink]="['/senior-section']">Senior Section</a>
+                  </div>
+                  </div>
+                  <!-- <div role="menuitem" dropdown triggers="mouseover" placement="right" container="body">
+                    <a dropdownToggle class="dropdown-item dropdown-toggle"
+                      (click)="false">Admission Process<span class="caret"></span></a>
+                    <div *dropdownMenu class="dropdown-menu" role="menu">
+                      <a class="dropdown-item" routerLink="." fragment="nested-dropdowns">Admission Process</a>
+                      <a class="dropdown-item" routerLink="." fragment="nested-dropdowns">Apply for Admission</a>
+                    </div>
+                    <a class="dropdown-item" routerLink="." fragment="nested-dropdowns">Scolarships</a>
+                    <a class="dropdown-item" routerLink="." fragment="nested-dropdowns">School Fees</a>
+                  </div> -->
                 </div>
-              </div>
-            </li> -->
-            <!-- Alumni -->
-            <li class="nav-item">
-              <div class="btn-group" dropdown>
-                <a id="button-basic" dropdownToggle type="button" class="nav-link dropdown-toggle"
-                aria-expanded="false">
-                  Alumni <span class="caret"></span>
-              </a>
-                <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-                    role="menu" aria-labelledby="button-basic">
-                  <a class="dropdown-item" [routerLink]="['/members']" >MMSS Members <fa-icon [icon]="fagraduate"></fa-icon></a>
-                  <a class="dropdown-item"  [routerLink]="['/login']">Member Login <fa-icon [icon]="faLogin"></fa-icon></a>
-                  <a class="dropdown-item" [routerLink]="['/register']" >Join Today <fa-icon [icon]="fajoin"></fa-icon></a>
-                  <a class="dropdown-item" [routerLink]="['/contact-us']"> Contact Us <fa-icon [icon]="faphone"></fa-icon> </a>
-                  <a class="dropdown-item" (click)="logOut()">Logout <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
-
-                </div>
-              </div>
+            </div>
             </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+            <!-- LatestNews -->
+          <li class="nav-item">
+            <a class="nav-link nav-tag" [routerLink]="['/latest-news']">Latest News</a>
+          </li>
+          <!-- Event -->
+          <!-- <li class="nav-item">
+            <div class="btn-group" dropdown>
+              <a id="button-basic" dropdownToggle type="button" class="nav-link dropdown-toggle"
+              aria-expanded="false">
+                Upcoming Events <span class="caret"></span>
+            </a>
+              <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                  role="menu" aria-labelledby="button-basic">
+                <a class="dropdown-item" href="#">All Events <fa-icon [icon]="facalendar"></fa-icon> </a>
+                <a class="dropdown-item" href="#">Event Calender <fa-icon [icon]="faevent"></fa-icon></a>
+
+              </div>
+            </div>
+          </li> -->
+          <!-- Alumni -->
+          <li class="nav-item">
+            <div class="btn-group" dropdown>
+              <a id="button-basic" dropdownToggle type="button" class="nav-link dropdown-toggle nav-tag"
+              aria-expanded="false">
+                Alumni <span class="caret"></span>
+            </a>
+              <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                  role="menu" aria-labelledby="button-basic">
+                <a class="dropdown-item" [routerLink]="['/members']" >MMSS Members <fa-icon [icon]="fagraduate"></fa-icon></a>
+                <a class="dropdown-item"  [routerLink]="['/login']">Member Login <fa-icon [icon]="faLogin"></fa-icon></a>
+                <a class="dropdown-item" [routerLink]="['/register']" >Join Today <fa-icon [icon]="fajoin"></fa-icon></a>
+                <a class="dropdown-item" [routerLink]="['/contact-us']"> Contact Us <fa-icon [icon]="faphone"></fa-icon> </a>
+                <a class="dropdown-item" (click)="logOut()">Logout <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+

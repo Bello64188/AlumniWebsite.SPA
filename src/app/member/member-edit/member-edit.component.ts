@@ -33,10 +33,10 @@ photoUrl:string;
 updateMember(){
   this.memservice.updateMember(this.auth.decodeToken.id,this.member).
   subscribe(next=>{
-    this.toastr.success("User Profile Update!!!");
+    this.toastr.success("User profile update!!!");
     this.editForm.reset(this.member);
   },err=>{
-    this.toastr.error('Failed to Update your profile');
+    this.toastr.error('Failed to update your profile');
   })
 }
 updatePhotoUrl(photourl:any){

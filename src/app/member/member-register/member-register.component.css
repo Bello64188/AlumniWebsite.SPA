@@ -52,5 +52,29 @@
  .margin-left mat-radio-button{
   margin-left:10px;
  }
-
+ @media only screen and (max-width: 500px) {
+  .container {
+    max-width: 100%;
+  }
+  .container-fluid,img{
+    width: 100%;
+    height: 15em;
+  }
+  .logDescription{
+    position: absolute;
+    left: 7.4em;
+    bottom: 3em;
+  }
+  .mat-card{
+    padding-left: 3em;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 15px 30px 0px rgb(0 0 0 / 10%);
+    padding: 0em 1em;
+  }
+ }
 

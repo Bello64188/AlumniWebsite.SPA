@@ -64,8 +64,8 @@ loadMember(){
   },
   (error:any)=>{
     if(this.memberParams.gradationYear == null)
-    this.toastr.warning("please Select Graduation Year");
-    this.toastr.error("Unable to fetch the Member, Login Please.");
+    this.toastr.warning("please select graduation year");
+    this.toastr.error("Unable to fetch the member, login please.");
   }
   )
 }
@@ -79,8 +79,8 @@ loadMemberWithoutGraduationYear(){
   },
   (error:any)=>{
     if(this.memberParams.gradationYear == null)
-    this.toastr.warning("please Select Graduation Year");
-    this.toastr.error("Unable to fetch the Member, Login Please.");
+    this.toastr.warning("please select graduation year");
+    this.toastr.error("Unable to fetch the member, login please.");
   }
   )
 }

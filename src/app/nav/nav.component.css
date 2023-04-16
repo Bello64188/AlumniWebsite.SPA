@@ -1,10 +1,12 @@
+
 .image-logo
 {
-  margin-left: 3em;
   margin-top: 1em;
-  position: relative;
-
 }
+.image-logo a img{
+  width: 122px;
+  height: 100px;
+    }
 h1 {
    display: inline-block;
    color: rgba(59, 95, 150, 0.3);
@@ -19,6 +21,7 @@ li{
   padding: 0em;
   list-style: none;
 }
+
 a{
   text-decoration: none;
   cursor: pointer;
@@ -26,8 +29,7 @@ a{
   font-size: 15px;
   font-family: 'Times New Roman', Times, serif;
 }
-
-.members
+ .members
 {
   background-color: rgba(7, 161, 110, 0.493);
   color: white;
@@ -92,4 +94,35 @@ position: relative;
   top:0;
 background-color: black;
   z-index: 1030;
+}
+@media only screen and (max-width: 500px) {
+  .image-logo a img{
+width:80px;
+height: 70px;
+  }
+  .image-logo
+{
+  margin-left: 0px;
+  margin-top: 1em;
+  display: block;
+
+}
+h1{
+  font-size: 14px;
+}
+ul.clearfix{
+  display: none!important;
+}
+.navbar {
+  padding-left: 15px;
+}
+.navbar-dark .navbar-nav .nav-link {
+  font-size: 14px!important;
+  border-right: none !important;
+}
+ul.navbar-nav{
+  padding-left: 5px;
+  float: left;
+}
+
 }

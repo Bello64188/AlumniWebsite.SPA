@@ -42,3 +42,26 @@
     width: 30%;
     text-align: justify;
   }
+  @media only screen and (max-width: 500px) {
+    .container{
+      max-width: 100%;
+    }
+    .row{
+      background-color: cornsilk;
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      border-radius: 3px;
+      box-shadow: 0px 15px 30px 0px rgb(0 0 0 / 10%);
+    }
+    .figure img{
+      height: 9em;
+      width: 100%;
+      }
+      .text{
+        margin-left: 1em;
+        width: 53%;
+        text-align: left;
+      }
+  }

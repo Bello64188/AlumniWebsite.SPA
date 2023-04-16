@@ -9,7 +9,7 @@
       <li *ngFor="let message of messages">
         <!-- message i sent to them -->
         <div class="container" *ngIf="message.senderId==memberId">
-          <img src="{{message.senderPhotoUrl}}" alt="{{message.senderKnownAs}}">
+          <img [src]="message.senderPhotoUrl!=null?message.senderPhotoUrl:'../../../assets/images/graduateImg.jpg'" alt="{{message.senderKnownAs}}">
           <strong class="primary-font">{{message.senderKnownAs}}</strong>
           <p>{{message.content}}</p>
           <span class="time-right"><i class="fa fa-clock-o"></i> {{message.messageSent|timeAgo}}</span>
@@ -17,7 +17,7 @@
 
         <!-- message they sent to me -->
         <div class="container darker" *ngIf="message.senderId!=memberId">
-          <img src="{{message.senderPhotoUrl}}" alt="{{message.senderKnownAs}}" class="right">
+          <img [src]="message.senderPhotoUrl!=null?message.senderPhotoUrl:'../../../assets/images/graduateImg.jpg'" alt="{{message.senderKnownAs}}" class="right">
           <strong class="primary-font">{{message.senderKnownAs}}</strong>
           <p>{{message.content}}</p>
           <span class="text-danger" *ngIf="!message.isRead"><span class="time-left "><i class="fa fa-clock-o"></i> {{message.messageSent|timeAgo}}</span>(Unread)</span>

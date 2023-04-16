@@ -56,3 +56,16 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+@media only screen and (max-width: 500px) {
+  .container{
+    max-width: 100%;
+  }
+  .col-md-2{
+    padding-top: 1.5em;
+  }
+  .col-md-7 h2{
+  margin-top: 1em;
+  font-weight: normal;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+}

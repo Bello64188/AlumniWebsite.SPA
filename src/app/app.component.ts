@@ -14,7 +14,8 @@ export class AppComponent implements OnInit{
   constructor(private auth:AuthService){}
   ngOnInit(): void {
    const token = localStorage.getItem('token');
-   const member:Member = JSON.parse(localStorage.getItem('memberFromDto')??'');
+   if(localStorage.getItem('memberFromDto')!=undefined){
+    const member:Member = JSON.parse(localStorage.getItem('memberFromDto')??'');
    if(token)
    this.auth.decodeToken=this.jwtHleper.decodeToken(token);
    if(member){
@@ -24,5 +25,7 @@ export class AppComponent implements OnInit{
     else
     this.auth.changeMemberPhoto('../assets/images/graduateImg.jpg');
    }
+   }
   }
+
 }

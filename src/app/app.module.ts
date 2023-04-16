@@ -6,7 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WeatherforecastComponent } from './weatherforecast/weatherforecast/weatherforecast.component';
 import { NavComponent } from './nav/nav.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -79,7 +78,6 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe implements PipeTransform{
   @NgModule({
     declarations: [
       AppComponent,
-      WeatherforecastComponent,
       NavComponent,
       FooterComponent,
       HomeComponent,

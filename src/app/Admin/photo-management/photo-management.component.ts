@@ -22,13 +22,13 @@ this.photos=next
 approvePhoto(id:number){
   return this.adminservice.approvePhoto(id).subscribe(()=>{
     this.photos.slice(this.photos.findIndex(p=>p.id===id),1);
-    this.toastr.success("Photo Approved Successfully");
+    this.toastr.success("Photo approved successfully");
   })
 }
 rejectPhoto(id:number){
   return this.adminservice.rejectPhoto(id).subscribe(()=>{
     this.photos.slice(this.photos.findIndex(x=>x.id===id),1);
-    this.toastr.success("Photo Rejected Successfully");
+    this.toastr.success("Photo rejected successfully");
     this.getUnapprovedPhoto();
   });
 }

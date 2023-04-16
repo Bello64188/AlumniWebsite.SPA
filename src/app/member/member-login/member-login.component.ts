@@ -51,15 +51,15 @@ showHidePassword(){
 Login(){
   return this.auth.login(this.model).subscribe((data:any)=>{
 
-    this.toastr.success("Login Successfully");
+    this.toastr.success("Login successfully");
   },
   (err:any)=>{
-    this.toastr.error('Check your Email and Password.');
+    this.toastr.error('Check your email and password.');
   },
   ()=>{
     //! use member list page here
     this.route.navigate(['/members']);
-    this.toastr.info("Welcome Modebe Alumni Web page !");
+    this.toastr.info("Welcome Modebe Alumni page!");
   }
   )
 }

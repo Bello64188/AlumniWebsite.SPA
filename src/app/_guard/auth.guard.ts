@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(this.auth.isMemberAuth()) return true;
       this.router.navigate(['/home']);
-      this.toastr.error("You have to Login as Alumni Member");
+      this.toastr.error("You have to login as alumni member");
       return false;
   }
 
