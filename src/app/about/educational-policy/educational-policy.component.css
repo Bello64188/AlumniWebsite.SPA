@@ -19,7 +19,7 @@
 .row{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   background-color: rgba(231, 221, 223, 0.836);
   box-sizing: border-box;
 }
@@ -30,4 +30,12 @@
 }
 .mt-2 {
   margin-top: 2.5rem!important;
+}
+@media  (max-width: 820px)and (min-width: 500px) {
+.col-md-6,.col-md-5{
+  width: 100%;
+}
+.mt-2{
+  margin-top: 0px!important;
+}
 }

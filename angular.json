@@ -34,7 +34,8 @@
                "src/assets/vendor/alertifyjs/build/css/themes/bootstrap.min.css",
                "src/assets/vendor/bootswatch/dist/litera/bootstrap.min.css",
                "src/assets/vendor/ngx-toastr/toastr.css",
-               "src/assets/vendor/sweetalert2/dist/sweetalert2.min.css"
+               "src/assets/vendor/sweetalert2/dist/sweetalert2.min.css",
+               "src/assets/vendor/ngx-spinner/animations/ball-beat.css"
             ],
             "scripts": [
               "src/assets/vendor/jquery copy/dist/jquery.min.js",
@@ -49,8 +50,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "10mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",

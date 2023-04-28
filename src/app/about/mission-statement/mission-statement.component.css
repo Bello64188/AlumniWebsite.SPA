@@ -51,3 +51,22 @@ background-color: rgba(235, 235, 237,0.3);
 .studentImg img{
   height: 90%;
  }
+
+ @media  (max-width: 820px)and (min-width: 500px) {
+  div.col-md-4{
+
+    padding: 12px;
+    margin: 0em 0em;
+    }
+    .row{
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+    }
+    .studentImg{
+      width: 60%;
+    }
+    .core-value{
+      width: 40%;
+    }
+ }

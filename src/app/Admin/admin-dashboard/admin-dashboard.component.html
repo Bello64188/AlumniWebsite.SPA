@@ -13,6 +13,11 @@
           <app-photo-management></app-photo-management>
         </div>
       </tab>
+      <tab heading="Document" *appHasRole="['Admin','Moderator']">
+        <div class="container">
+        <app-document></app-document>
+        </div>
+      </tab>
     </tabset>
   </div>
 

@@ -19,13 +19,14 @@
   .figure img{
   height: 20em;
   width: 100%;
+  margin-top: 2em;
   }
   .row{
-    background-color: cornsilk;
+    /* background-color: cornsilk; */
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 100%;
     border-radius: 3px;
     box-shadow: 0px 15px 30px 0px rgb(0 0 0 / 10%);
   }
@@ -33,13 +34,12 @@
   padding-top: 2em;
   display: flex;
   width: 100%;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: start;
   align-items: stretch;
   }
   .text{
-    margin-left: 1em;
-    width: 30%;
+    margin-bottom: 1em;
+    width: 83%;
     text-align: justify;
   }
   @media only screen and (max-width: 500px) {
@@ -47,7 +47,7 @@
       max-width: 100%;
     }
     .row{
-      background-color: cornsilk;
+      /* background-color: cornsilk; */
       box-sizing: border-box;
       margin-left: auto;
       margin-right: auto;
@@ -56,12 +56,35 @@
       box-shadow: 0px 15px 30px 0px rgb(0 0 0 / 10%);
     }
     .figure img{
-      height: 9em;
+      height: 12em;
       width: 100%;
       }
       .text{
-        margin-left: 1em;
-        width: 53%;
-        text-align: left;
+        /* margin-left: 1em; */
+        width: 100%;
+        text-align: justify;
+      }
+  }
+  @media  (max-width: 820px)and (min-width: 500px) {
+    .container{
+      max-width: 100%;
+    }
+    .row{
+      /* background-color: cornsilk; */
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      border-radius: 3px;
+      box-shadow: 0px 15px 30px 0px rgb(0 0 0 / 10%);
+    }
+    .figure img{
+      height: 20em;
+      width: 100%;
+      }
+      .text{
+        /* margin-left: 1em; */
+        width: 83%;
+        text-align: justify;
       }
   }

@@ -74,6 +74,8 @@
             <mat-form-field class="full-width">
           <input matInput placeholder="Phone Number" required formControlName="phoneNumber">
           <mat-error *ngIf="(registerFormControl['phoneNumber'].touched || submitted) && registerFormControl['phoneNumber'].errors?.['required']">Phone Number Required.</mat-error>
+          <mat-error *ngIf="(registerFormControl['phoneNumber'].touched || submitted) && registerFormControl['phoneNumber'].errors?.['pattern']">Invalid Phone Number.</mat-error>
+          <mat-error *ngIf="(registerFormControl['phoneNumber'].touched || submitted) && registerFormControl['phoneNumber'].errors?.['maxlength']">Invalid Phone Number.</mat-error>
           </mat-form-field>
           </div>
               <div class="form-group"  >

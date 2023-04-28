@@ -30,6 +30,20 @@ faevent =faCalendarTimes
   constructor( private authService:AuthService) { }
 
   ngOnInit(): void {
+    document.addEventListener("DOMContentLoaded", function(){
+      window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) {
+            document.getElementById('navbar_top')?.classList.add('fixed-top');
+            // add padding top to show content behind navbar
+          var  navbar_height:any = document.querySelector('.navbar');
+            document.body.style.paddingTop = navbar_height + 'px';
+          } else {
+            document.getElementById('navbar_top')?.classList.remove('fixed-top');
+             // remove padding top from body
+            document.body.style.paddingTop = '0';
+          }
+      });
+    });
 
   }
   logOut(){

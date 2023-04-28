@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">Upload Document</div>
+        <div class="panel-body">
+
+              <fieldset>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                     <form action="" [formGroup]="docfile" (submit)="UploadDocument()">
+
+                      <div class="form-group">
+                        <input class="form-control form-control-sm" formControlName="file" (change)="onFileChange($event)"  name="file" id="file" type="file" required/>
+                        <div *ngIf="(f['file'].touched && f['file'].invalid)" class="alert alert-light py-0 mt-2">
+                          <div *ngIf="f['file'].errors?.['required']" class="text-danger">File is required.</div>
+                      </div>
+                      </div>
+                      <div>
+                        <input class="btn btn-sm btn-primary" [disabled]="docfile.invalid" type="submit" value="submit">
+                      </div>
+                     </form>
+                    </div>
+                  </div>
+
+          </fieldset>
+        </div>
+  </div>
+    </div>
+    <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">Delete Document</div>
+        <div class="panel-body">
+          <fieldset>
+            <div class="panel panel-default">
+              <div class="panel-body">
+               <form action="" #form="ngForm" (ngSubmit)="DeleteDocument(form)">
+                     <div  class="form-group">
+                            <input class="form-control form-control-sm" name="DocumentName" placeholder="calendar.pdf" id="DocumentName" type="text" ngModel/>
+                          </div>
+                          <div>
+                            <input class="btn btn-sm btn-danger"[disabled]="form.value.DocumentName==''|| form.dirty===false"  type="submit" value="submit">
+                          </div>
+                </form>
+                </div>
+                </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

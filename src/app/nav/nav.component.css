@@ -126,3 +126,42 @@ ul.navbar-nav{
 }
 
 }
+@media  (max-width: 820px)and (min-width: 500px) {
+  .image-logo a img{
+    width:80px;
+    height: 70px;
+      }
+      .image-logo
+    {
+      margin-left: 0px;
+      margin-top: 1em;
+      display: block;
+
+    }
+    h1{
+      font-size: 14px;
+    }
+    ul.clearfix{
+      display: none!important;
+    }
+    .navbar {
+      padding-left: 15px;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+      font-size: 14px!important;
+      border-right: none !important;
+    }
+    ul.navbar-nav{
+      padding-left: 5px;
+      float: left;
+    }
+    ul.clearfix{
+      display: block!important;
+    }
+    .contact{
+      width: 10%;
+    }
+    .head{
+      width: 70%;
+    }
+}

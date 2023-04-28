@@ -5,6 +5,7 @@ import { AuthService } from './../../_services/auth.service';
 import { MemberService } from 'src/app/_services/member.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-member-login',
@@ -24,7 +25,8 @@ registerMode =false;
      private member:MemberService,
      private auth:AuthService,
      private toastr:ToastrService,
-     private route:Router) { }
+     private route:Router,
+     private SpinnerService: NgxSpinnerService) { }
   ngOnInit(): void {
    this.createLog();
   }
@@ -49,17 +51,22 @@ showHidePassword(){
  * @returns
  */
 Login(){
+
+    this.SpinnerService.show();
   return this.auth.login(this.model).subscribe((data:any)=>{
 
     this.toastr.success("Login successfully");
+    this.SpinnerService.hide();
   },
   (err:any)=>{
     this.toastr.error('Check your email and password.');
+    this.SpinnerService.hide();
   },
   ()=>{
     //! use member list page here
     this.route.navigate(['/members']);
     this.toastr.info("Welcome Modebe Alumni page!");
+    this.SpinnerService.hide();
   }
   )
 }

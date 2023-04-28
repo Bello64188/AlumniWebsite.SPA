@@ -12,6 +12,7 @@ import { AbstractControl,
     ValidationErrors,
     ValidatorFn,
     Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-member-register',
@@ -29,6 +30,7 @@ registerForm : FormGroup;
   constructor(private member:MemberService,
      private fb:FormBuilder, private auth:AuthService,
      private toastr:ToastrService,private route:Router,
+     private SpinnerService: NgxSpinnerService
     ) { }
 
   ngOnInit(): void {
@@ -46,7 +48,7 @@ createForm(){
     dateOfBirth:[null,Validators.required],
     city:['',Validators.required],
     country:['',Validators.required],
-    phoneNumber: ['',Validators.required],
+    phoneNumber: ['',[Validators.required,Validators.maxLength(12),Validators.pattern('[- +()0-9]+')]],
     password: ['',[Validators.required,Validators.minLength(4), this.member.patternValidation()]],
     confirmPassword: ['',Validators.required],
     graduationYear:['',Validators.required]
@@ -69,20 +71,26 @@ get registerFormControl(){
 }
 //* Register
 register(){
+  this.SpinnerService.show();
   this.submitted=true;
   if (this.registerForm.valid) {
     this.model= Object.assign({},this.registerForm.value);
     this.auth.Register(this.model).subscribe(()=>{
     this.toastr.success("Registered successfully...");
+this.SpinnerService.hide();
 
     },
     (error:any)=>{
       this.toastr.error("Registration failed.");
+      this.SpinnerService.hide();
+
     },
     ()=>{
       this.auth.login(this.model).subscribe(()=>{
       this.route.navigate(['/members']);
       this.toastr.info("Welcome to Modebe Alumni page")
+      this.registerForm.reset();
+      this.SpinnerService.hide();
       });
     }
     );

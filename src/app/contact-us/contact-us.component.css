@@ -56,6 +56,9 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+h2 {
+  font-size: 1.2rem;
+}
 @media only screen and (max-width: 500px) {
   .container{
     max-width: 100%;

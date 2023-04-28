@@ -9,14 +9,14 @@
   </div>
   <form (ngSubmit)="loadMember()" #form="ngForm" class="form-inline" novalidate>
     <div class="form-group">
-      <label for="graduationYear"> Select Graduation Year:</label>
+      <label class="labelTitle" for="graduationYear"> Select Graduation Year:</label>
       <select name="graduationYear" id="graduationYear"   class="form-control" [(ngModel)]="memberParams.graduationYear" >
         <!-- <option  [value]="null">Select</option> select default value -->
         <option *ngFor="let item of yearOfGraduations" [value]="item||null">{{item}}</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="gender">Show:</label>
+      <label class="labelTitle" for="gender">Show:</label>
       <select name="gender" id="gender" class="form-control" [(ngModel)]="memberParams.gender">
         <option *ngFor="let gender of genderList" [value]="gender.value">{{gender.display}}</option>
       </select>

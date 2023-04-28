@@ -80,3 +80,16 @@ margin-left: 2px;
 .col-md-3 {
   width: 21%;
 }
+@media only screen and (max-width: 500px) {
+  .form-control {
+    display: initial;
+    width: 9em !important;
+
+  }
+  #mybtn{
+    margin-top: 10px;
+  }
+  .col-md-3{
+    width: 44%;
+}
+}

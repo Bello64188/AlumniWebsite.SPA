@@ -7,6 +7,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import { strings } from '@angular-devkit/schematics';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { RoleModalComponent } from 'src/app/modal/role-modal/role-modal.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-user-management',
@@ -18,7 +19,10 @@ export class UserManagementComponent implements OnInit {
   members:any[]=[]
  userName:string='';
  bsModalRef?: BsModalRef;
-  constructor(private admin:AdminService, private modalService:BsModalService, private toastr:ToastrService) { }
+  constructor(private admin:AdminService,
+     private modalService:BsModalService,
+     private toastr:ToastrService,
+     private SpinnerService: NgxSpinnerService ) { }
 
   ngOnInit(): void {
 this.getMemberRoles();
@@ -26,8 +30,10 @@ this.getMemberRoles();
   }
 
 getMemberRoles(){
+  this.SpinnerService.show();
 this.admin.getMemberWithRoles().subscribe((user:any)=>{
 this.members=user;
+this.SpinnerService.hide();
   })
 }
  onBlurUsername(event:any){

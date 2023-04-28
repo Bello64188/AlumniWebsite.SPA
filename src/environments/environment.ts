@@ -3,12 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false ,
- weatherUrl : "https://localhost:5001/WeatherForecast",
- AccountUrl:  "https://localhost:5001/api/Account/",
- MemberApi:"https://localhost:5001/api/",
- AdminApi :"https://localhost:5001/api/Admin/"
-
+  production: false,
+  weatherUrl: 'https://localhost:5001/WeatherForecast',
+  AccountUrl: 'https://localhost:5001/api/Account/',
+  MemberApi: 'https://localhost:5001/api/',
+  AdminApi: 'https://localhost:5001/api/Admin/',
+  DocumentUrl: 'https://localhost:5001/api/Document/',
 };
 
 /*

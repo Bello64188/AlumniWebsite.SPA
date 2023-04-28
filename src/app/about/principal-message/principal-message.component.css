@@ -10,6 +10,10 @@
   box-sizing: border-box;
   margin-bottom: 1em;
 }
+.container{
+  margin-left: 0px;
+  margin-right:0px;
+}
 .row{
   display: flex;
   flex-direction: row;
@@ -18,7 +22,7 @@
 .studentImg{
   background-color: rgba(235, 235, 237,0.3);
   }
-  .col-md-3 h2{
+  .col-md-4 h2{
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: normal;
   line-height: 1.5;
@@ -26,4 +30,17 @@
   .col-md-8 p{
     text-align: justify;
     line-height: 1.8;
+  }
+  @media  (max-width: 820px)and (min-width: 500px) {
+    .col-md-4{
+      width: 100%;
+    }
+    .col-md-8{
+      width: 100%;
+    }
+    .row{
+      display: flex;
+      flex-direction: row;
+      justify-content:unset;
+    }
   }

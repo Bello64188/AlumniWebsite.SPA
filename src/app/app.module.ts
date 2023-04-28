@@ -65,6 +65,8 @@ import { RoleModalComponent } from './modal/role-modal/role-modal.component';
 import { PhotoManagementComponent } from './Admin/photo-management/photo-management.component';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { HasRoleDirective } from './_directive/has-role.directive';
+import { DocumentComponent } from './Admin/document/document.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @Pipe({
   name:'timeAgo',
@@ -111,7 +113,8 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe implements PipeTransform{
       RoleModalComponent,
       PhotoManagementComponent,
       AdminDashboardComponent,
-      HasRoleDirective
+      HasRoleDirective,
+      DocumentComponent
 
     ],
     imports: [
@@ -147,7 +150,8 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe implements PipeTransform{
         TabsModule.forRoot(),
         MatPaginatorModule,
         MatTableModule,
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        NgxSpinnerModule
 
 
     ],

@@ -6,13 +6,13 @@
             <img src="../../assets/images/modebe.png" alt="modebe image">
           </a>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 head">
           <h1>MODEBE MEMORIAL SECONDARY SCHOOL ONITSHA</h1>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 contact">
           <ul class="clearfix">
-            <li><a [routerLink]="['/contact-us']" > Contact Us</a></li>
-            <li><a [routerLink]="['/login']">Member Login</a></li>
+            <li><a [routerLink]="['/contact-us']" > Contact&nbsp;us</a></li>
+            <li><a [routerLink]="['/login']">Member&nbsp;login</a></li>
             <li ><a [routerLink]="['/admin']" >Admin</a></li>
             <!-- <li><a href="" class="members"> Members-Get Listed Today</a></li> -->
 
@@ -23,7 +23,7 @@
   </div>
 
   <div class="container-fluid ">
-    <nav class="navbar navbar-expand-lg   lockedonscroll navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary" id="navbar_top">
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -130,10 +130,10 @@
             </a>
               <div id="dropdown-basic" *dropdownMenu class="dropdown-menu"
                   role="menu" aria-labelledby="button-basic">
-                <a class="dropdown-item" [routerLink]="['/members']" >MMSS Members <fa-icon [icon]="fagraduate"></fa-icon></a>
-                <a class="dropdown-item"  [routerLink]="['/login']">Member Login <fa-icon [icon]="faLogin"></fa-icon></a>
-                <a class="dropdown-item" [routerLink]="['/register']" >Join Today <fa-icon [icon]="fajoin"></fa-icon></a>
-                <a class="dropdown-item" [routerLink]="['/contact-us']"> Contact Us <fa-icon [icon]="faphone"></fa-icon> </a>
+                <a class="dropdown-item" [routerLink]="['/members']" >MMSS members <fa-icon [icon]="fagraduate"></fa-icon></a>
+                <a class="dropdown-item"  [routerLink]="['/login']">Member login <fa-icon [icon]="faLogin"></fa-icon></a>
+                <a class="dropdown-item" [routerLink]="['/register']" >Join today <fa-icon [icon]="fajoin"></fa-icon></a>
+                <a class="dropdown-item" [routerLink]="['/contact-us']"> Contact us <fa-icon [icon]="faphone"></fa-icon> </a>
                 <a class="dropdown-item" (click)="logOut()">Logout <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
 
               </div>

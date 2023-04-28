@@ -16,7 +16,7 @@ export class AuthService {
   public jwtHelperService:JwtHelperService = new JwtHelperService()
   decodeToken:any;
   currentUser:any
-  private currentUserSource= new ReplaySubject<Member>(1,60000);
+  private currentUserSource= new ReplaySubject<Member>(1,Number.POSITIVE_INFINITY);
   currentMember$= this.currentUserSource.asObservable();
   private photoUrl = new BehaviorSubject<string>('../../assets/images/graduateImg.jpg');
   currentPhotoUrl = this.photoUrl.asObservable();
@@ -42,7 +42,7 @@ export class AuthService {
         localStorage.setItem('memberFromDto',JSON.stringify(member.memberFromDto));
         this.decodeToken = this.jwtHelperService.decodeToken(member.token);
         this.currentUser= member.memberFromDto;
-        this.currentUserSource= member.memberFromDto;
+       // this.currentUserSource= member.memberFromDto;
         if(this.currentUser.photoUrl !== null)
         this.changeMemberPhoto(this.currentUser.photoUrl);
         else
@@ -88,14 +88,14 @@ export class AuthService {
   this.route.navigate(['/home']);
 }
 getActiveUser(){
-  return this.jwtHelperService.decodeToken(this.jwtHelperService.tokenGetter());
+  return this.jwtHelperService.decodeToken(
+    Promise.resolve( this.jwtHelperService.tokenGetter()));
 }
 setCurrentMember(member:Member){
 member.roles=[];
 const roles= this.getDecodeToken(member.token).role;
 Array.isArray(roles)?member.roles=roles:member.roles.push(roles);
 this.currentUserSource.next(member);
-console.log(this.currentUserSource);
 }
 getDecodeToken(token:any){
 return JSON.parse(atob(token.split('.')[1]));
