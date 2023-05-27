@@ -66,8 +66,8 @@ this.bsModalRef.content.UpdateSelectedRole.subscribe((values:any)=>{
 }
 
 private getRolesArray(user:any){
-  const roles:any[]=[];
-  const userRoles= user.roles;
+  var member_roles= this.members.filter(p=>p.id==user.id);
+  const _roles:any[]=[];
   const availabilityRoles:any[]=[
     {name:'Admin',value:'Admin'},
     {name:'Moderator',value:'Moderator'},
@@ -75,20 +75,20 @@ private getRolesArray(user:any){
   ];
 availabilityRoles.forEach(role=>{
   let isMatch = false;
-  for(const userRole of userRoles){
-    if(role.name=== userRole){
+  for(var userRole of member_roles){
+    if(role.name=== userRole.roles){
       isMatch=true;
       role.checked=true;
-      roles.push(role)
+      _roles.push(role)
       break;
     }
   }
   if(!isMatch){
     role.checked=false;
-    roles.push(role);
+    _roles.push(role);
   }
 })
-return roles;
+return _roles;
 }
 }
 

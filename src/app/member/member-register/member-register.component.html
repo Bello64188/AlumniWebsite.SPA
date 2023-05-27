@@ -81,7 +81,7 @@
               <div class="form-group"  >
                 <mat-form-field class="full-width">
               <input matInput placeholder="Password" [type]="showPassword? 'text':'password'" name="password"  required formControlName="password">
-              <mat-icon matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon>
+              <!-- <mat-icon matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon> -->
               <mat-error  *ngIf="(registerFormControl['password'].touched || submitted) && registerFormControl['password'].errors?.['required']">
                 Password is Required.
               </mat-error>
@@ -96,7 +96,7 @@
                 <div class="form-group"  >
                   <mat-form-field class="full-width">
                 <input matInput placeholder="Confirm Password" [type]="showPassword? 'text':'password'" name="password"  required formControlName="confirmPassword" (input)="onPasswordInput()">
-                <mat-icon matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon>
+                <!-- <mat-icon matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon> -->
                 <mat-error  *ngIf="(registerFormControl['confirmPassword'].touched || submitted) && registerFormControl['confirmPassword'].errors?.['required']">
                   Confirm Password is Required.
                 </mat-error>

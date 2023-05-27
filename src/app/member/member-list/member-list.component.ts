@@ -25,8 +25,7 @@ genderList=[
 ];
 memberParams:any={};
 photoUrl:string;
-yearOfGraduations:number[]= [1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,
-  2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022];
+yearOfGraduations:number[]= this.generateArrayOfYears();
   constructor(private memberServ:MemberService,private toastr:ToastrService,
    private route:ActivatedRoute, public auth:AuthService,  private SpinnerService: NgxSpinnerService ) { }
 
@@ -102,5 +101,14 @@ pageChanged(event: PageChangedEvent): void{
   this.pagination.currentPage= event.page;
   this.loadMemberWithoutGraduationYear()
 }
+generateArrayOfYears() {
+  var max = new Date().getFullYear();
+  var min = 2000;
+  var years = [];
+  for (var i = max; i >= min; i--) {
+    years.push(i);
+  }
 
+  return years;
+}
 }
